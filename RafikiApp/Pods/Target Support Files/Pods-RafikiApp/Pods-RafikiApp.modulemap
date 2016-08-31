@@ -1,0 +1,6 @@
+framework module Pods_RafikiApp {
+  umbrella header "Pods-RafikiApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
