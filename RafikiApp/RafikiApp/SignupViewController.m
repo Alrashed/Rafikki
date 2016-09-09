@@ -9,6 +9,8 @@
 #import "SignupViewController.h"
 #import "AFNetworking/AFNetworking.h"
 
+@import Firebase;
+
 @interface SignupViewController ()
 
 @end
@@ -68,6 +70,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated
 {
+    FIRUser *user = [FIRAuth auth].currentUser;
     self.navigationController.navigationBarHidden=YES;
 }
 - (UIStatusBarStyle)preferredStatusBarStyle
@@ -117,70 +120,84 @@
 }
 -(void)signupUserApiCall
 {
-    NSString *urlStr =[NSString stringWithFormat:@"http://cricyard.com/iphone/rafiki_app/service/register.php"];
-    NSString *tocken=[[NSUserDefaults standardUserDefaults] objectForKey:@"Tocken"];
-    NSLog(@"token is : %@",tocken);
-    NSDictionary *dictParams;
-    if ([tocken isEqualToString:@""]||tocken ==(id)[NSNull null]||tocken==nil)
-    {
-        tocken=@"123123123123123123";
-        dictParams = @{@"email":TxtEmail.text,@"password":TxtPassword.text,@"username":TxtUsername.text,@"phone_no" :TxtPhoneNumber.text,@"user_type":@"1",@"device_token":tocken,@"device_type":@"1"};
-    }
-    else
-    {
-        dictParams = @{@"email":TxtEmail.text,@"password":TxtPassword.text,@"username":TxtUsername.text,@"phone_no" :TxtPhoneNumber.text,@"user_type":@"1", @"device_token":tocken,@"device_type":@"1"};
-    }
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager GET:urlStr parameters:dictParams success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Response: %@",responseObject);
-         NSDictionary *userResponseDics=[responseObject valueForKey:@"data"];
-        
-        if ([[responseObject valueForKey:@"msg"] isEqualToString:@"Signup Successfully "])
-        {
-            [[NSUserDefaults standardUserDefaults] setObject:TxtUsername.text forKey:@"userName"];
-            [[NSUserDefaults standardUserDefaults] setObject:TxtEmail.text forKey:@"userEmail"];
-            [[NSUserDefaults standardUserDefaults] setObject:TxtPassword.text forKey:@"userPassword"];
-            [[NSUserDefaults standardUserDefaults] setObject:TxtPhoneNumber.text forKey:@"userPhone"];
-            
-            [[NSUserDefaults standardUserDefaults] setObject:[userResponseDics valueForKey:@"user_id"] forKey:@"userId"];
-            
-            [[NSUserDefaults standardUserDefaults] setObject:[userResponseDics valueForKey:@"is_filled"] forKey:@"is_filledValue"];
-            
-            NSLog(@"is Filed value is:%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"is_filledValue"]);
-            
-            [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"userType"];
-            [[NSUserDefaults standardUserDefaults] setObject:@"No" forKey:@"payment_method_add"];
-            
-            NSLog(@"my data is:%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"]);
-            
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
-            
-            UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Rafikki App" message:nil delegate:self cancelButtonTitle:@"Next" otherButtonTitles:@"Save & Next", nil];
-            [alert show];
-        }
-        else
-        {
-            NSLog(@"Some problem Occures");
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"email Or username Exist"
-                                                                message:nil
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"Ok"
-                                                      otherButtonTitles:nil];
-            [alertView show];
-        }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        // 4
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving"
-                                                            message:[error localizedDescription]
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"Ok"
-                                                  otherButtonTitles:nil];
-        [alertView show];
-    }];
+//    NSString *urlStr =[NSString stringWithFormat:@"http://cricyard.com/iphone/rafiki_app/service/register.php"];
+//    NSString *tocken=[[NSUserDefaults standardUserDefaults] objectForKey:@"Tocken"];
+//    NSLog(@"token is : %@",tocken);
+//    NSDictionary *dictParams;
+//    if ([tocken isEqualToString:@""]||tocken ==(id)[NSNull null]||tocken==nil)
+//    {
+//        tocken=@"123123123123123123";
+//        dictParams = @{@"email":TxtEmail.text,@"password":TxtPassword.text,@"username":TxtUsername.text,@"phone_no" :TxtPhoneNumber.text,@"user_type":@"1",@"device_token":tocken,@"device_type":@"1"};
+//    }
+//    else
+//    {
+//        dictParams = @{@"email":TxtEmail.text,@"password":TxtPassword.text,@"username":TxtUsername.text,@"phone_no" :TxtPhoneNumber.text,@"user_type":@"1", @"device_token":tocken,@"device_type":@"1"};
+//    }
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+//    [manager GET:urlStr parameters:dictParams success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSLog(@"Response: %@",responseObject);
+//         NSDictionary *userResponseDics=[responseObject valueForKey:@"data"];
+//        
+//        if ([[responseObject valueForKey:@"msg"] isEqualToString:@"Signup Successfully "])
+//        {
+//            [[NSUserDefaults standardUserDefaults] setObject:TxtUsername.text forKey:@"userName"];
+//            [[NSUserDefaults standardUserDefaults] setObject:TxtEmail.text forKey:@"userEmail"];
+//            [[NSUserDefaults standardUserDefaults] setObject:TxtPassword.text forKey:@"userPassword"];
+//            [[NSUserDefaults standardUserDefaults] setObject:TxtPhoneNumber.text forKey:@"userPhone"];
+//            
+//            [[NSUserDefaults standardUserDefaults] setObject:[userResponseDics valueForKey:@"user_id"] forKey:@"userId"];
+//            
+//            [[NSUserDefaults standardUserDefaults] setObject:[userResponseDics valueForKey:@"is_filled"] forKey:@"is_filledValue"];
+//            
+//            NSLog(@"is Filed value is:%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"is_filledValue"]);
+//            
+//            [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"userType"];
+//            [[NSUserDefaults standardUserDefaults] setObject:@"No" forKey:@"payment_method_add"];
+//            
+//            NSLog(@"my data is:%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"]);
+//            
+//            [MBProgressHUD hideHUDForView:self.view animated:YES];
+//            
+//            UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Rafikki App" message:nil delegate:self cancelButtonTitle:@"Next" otherButtonTitles:@"Save & Next", nil];
+//            [alert show];
+//        }
+//        else
+//        {
+//            NSLog(@"Some problem Occures");
+//            [MBProgressHUD hideHUDForView:self.view animated:YES];
+//            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"email Or username Exist"
+//                                                                message:nil
+//                                                               delegate:nil
+//                                                      cancelButtonTitle:@"Ok"
+//                                                      otherButtonTitles:nil];
+//            [alertView show];
+//        }
+//        
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        
+//        // 4
+//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving"
+//                                                            message:[error localizedDescription]
+//                                                           delegate:nil
+//                                                  cancelButtonTitle:@"Ok"
+//                                                  otherButtonTitles:nil];
+//        [alertView show];
+//    }];
+    NSString *email = TxtEmail.text;
+    NSString *password = TxtPassword.text;
+
+    [[FIRAuth auth] createUserWithEmail:email
+                               password:password
+                             completion:^(FIRUser * _Nullable user, NSError * _Nullable error) {
+                                 if (error) {
+                                     NSLog(@"%@", error.localizedDescription);
+                                     return;
+                                 }
+//                                 [self setDisplayName:user];
+                                 UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Rafikki App" message:nil delegate:self cancelButtonTitle:@"Next" otherButtonTitles:@"Save & Next", nil];
+                                             [alert show];
+                             }];
 
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
