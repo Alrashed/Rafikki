@@ -16,11 +16,11 @@
 #import "RearViewController.h"
 #import "JobHistoryViewController.h"
 
-#import "BraintreeCore.h"
-#import "BraintreeUI.h"
-#import "BraintreePayPal.h"
+//#import "BraintreeCore.h"
+//#import "BraintreeUI.h"
+//#import "BraintreePayPal.h"
 
-@interface RateViewController : UIViewController<BTDropInViewControllerDelegate,BTAppSwitchDelegate, BTViewControllerPresentingDelegate>
+@interface RateViewController : UIViewController //<BTDropInViewControllerDelegate,BTAppSwitchDelegate, BTViewControllerPresentingDelegate>
 {
     IBOutlet DLStarRatingControl *customStarImageControl;
     NSString *starrating;
@@ -28,8 +28,8 @@
     NSString *final;
 }
 @property(nonatomic,retain)NSString *NotiDataflag;
-@property (nonatomic, strong) BTPayPalDriver *payPalDriver;
-@property (nonatomic, strong) BTAPIClient *braintreeClient;
+//@property (nonatomic, strong) BTPayPalDriver *payPalDriver;
+//@property (nonatomic, strong) BTAPIClient *braintreeClient;
 @property(nonatomic,retain)NSMutableArray *getperamArray;
 - (IBAction)cancelAction:(id)sender;
 - (IBAction)submitAction:(id)sender;

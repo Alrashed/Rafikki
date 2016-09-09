@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "AFNetworking/AFNetworking.h"
+@import Firebase;
+
 @interface ViewController ()
 
 @end

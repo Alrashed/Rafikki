@@ -15,7 +15,7 @@
 
 #import "PayPalMobile.h"
 #import "AboutMeVC.h"
-#import "BraintreeCore.h"
+//#import "BraintreeCore.h"
 #import "PaymentInfoVC.h"
 
 #import "ExpertSignupVC.h"//scree1
@@ -25,7 +25,7 @@
 #import "PhotoIdVC.h"//screen5
 #import "AboutMeVC.h"//screen6
 #import "PaymentInfoVC.h"//screen7
-
+@import Firebase;
 
 
 #define IS_OS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
@@ -37,6 +37,8 @@
 @synthesize trecker,skillCountTag;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    // Use Firebase library to configure APIs
+    [FIRApp configure];
     [Stripe setDefaultPublishableKey:@"pk_test_ecZONuPBHFsDKqp0yswOnCNV"];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     NSLog(@"my screen size:%f",[UIScreen mainScreen].bounds.size.height);
@@ -58,7 +60,7 @@
     }
     skillCountTag=1;
     [self getloc];
-    [BTAppSwitch setReturnURLScheme:@"com.indiachat.payments"];
+    //[BTAppSwitch setReturnURLScheme:@"com.indiachat.payments"];
     [PayPalMobile initializeWithClientIdsForEnvironments:@{PayPalEnvironmentProduction : @"YOUR_CLIENT_ID_FOR_PRODUCTION",
                                                            PayPalEnvironmentSandbox : @"Ac50mpQK2xYX9Is9y1alchldpZ6aIKQfayCoZZj5No2JKHNRpDQKn5KWER7G7mQMvF0VSPptfaYbDJTX"}];
     
@@ -318,7 +320,7 @@
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
     if ([url.scheme localizedCaseInsensitiveCompare:@"com.indiachat.payments"] == NSOrderedSame) {
-        return [BTAppSwitch handleOpenURL:url sourceApplication:sourceApplication];
+    //    return [BTAppSwitch handleOpenURL:url sourceApplication:sourceApplication];
     }
     return NO;
 }

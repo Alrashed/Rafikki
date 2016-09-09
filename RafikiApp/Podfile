@@ -5,6 +5,8 @@ use_frameworks!
 
 target 'RafikiApp' do
 pod 'Braintree'
+pod 'Firebase'
+pod 'Firebase/Messaging'
 end
 
 target 'RafikiAppTests' do

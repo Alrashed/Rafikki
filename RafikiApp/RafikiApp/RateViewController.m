@@ -132,40 +132,40 @@
              }
              else
              {
-                 self.braintreeClient = [[BTAPIClient alloc] initWithAuthorization:[[responseObject valueForKey:@"client_token"] objectAtIndex:0]];
-
-                 BTPaymentRequest *paymentRequest = [[BTPaymentRequest alloc] init];
-                 paymentRequest.summaryTitle = @"Job Payment";
-                 paymentRequest.summaryDescription = @"";
-                 paymentRequest.displayAmount = final;
-                 paymentRequest.callToActionText =[NSString stringWithFormat:@"%@- Payment Now",final];
-                 paymentRequest.shouldHideCallToAction = NO;
-                 
-                 BTDropInViewController *dropIn = [[BTDropInViewController alloc] initWithAPIClient:self.braintreeClient];
-                 dropIn.delegate = self;
-                 dropIn.paymentRequest = paymentRequest;
-                 dropIn.title = @"Check Out";
-                 
-                 
-                 // Create a BTDropInViewController
-                 //        BTDropInViewController *dropInViewController = [[BTDropInViewController alloc]
-                 //                                                        initWithAPIClient:self.braintreeClient];
-                 //        dropInViewController.delegate = self;
-                 
-                 // This is where you might want to customize your view controller (see below)
-                 
-                 // The way you present your BTDropInViewController instance is up to you.
-                 // In this example, we wrap it in a new, modally-presented navigation controller:
-                 UIBarButtonItem *item = [[UIBarButtonItem alloc]
-                                          initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
-                                          target:self
-                                          action:@selector(userDidCancelPayment)];
-                 dropIn.navigationItem.leftBarButtonItem = item;
-                 UINavigationController *navigationController = [[UINavigationController alloc]
-                                                                 initWithRootViewController:dropIn];
-                 [self presentViewController:navigationController animated:YES completion:nil];
-                 // As an example, you may wish to present our Drop-in UI at this point.
-                 // Continue to the next section to learn more...
+//                 self.braintreeClient = [[BTAPIClient alloc] initWithAuthorization:[[responseObject valueForKey:@"client_token"] objectAtIndex:0]];
+//
+//                 BTPaymentRequest *paymentRequest = [[BTPaymentRequest alloc] init];
+//                 paymentRequest.summaryTitle = @"Job Payment";
+//                 paymentRequest.summaryDescription = @"";
+//                 paymentRequest.displayAmount = final;
+//                 paymentRequest.callToActionText =[NSString stringWithFormat:@"%@- Payment Now",final];
+//                 paymentRequest.shouldHideCallToAction = NO;
+//                 
+//                 BTDropInViewController *dropIn = [[BTDropInViewController alloc] initWithAPIClient:self.braintreeClient];
+//                 dropIn.delegate = self;
+//                 dropIn.paymentRequest = paymentRequest;
+//                 dropIn.title = @"Check Out";
+//                 
+//                 
+//                 // Create a BTDropInViewController
+//                 //        BTDropInViewController *dropInViewController = [[BTDropInViewController alloc]
+//                 //                                                        initWithAPIClient:self.braintreeClient];
+//                 //        dropInViewController.delegate = self;
+//                 
+//                 // This is where you might want to customize your view controller (see below)
+//                 
+//                 // The way you present your BTDropInViewController instance is up to you.
+//                 // In this example, we wrap it in a new, modally-presented navigation controller:
+//                 UIBarButtonItem *item = [[UIBarButtonItem alloc]
+//                                          initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+//                                          target:self
+//                                          action:@selector(userDidCancelPayment)];
+//                 dropIn.navigationItem.leftBarButtonItem = item;
+//                 UINavigationController *navigationController = [[UINavigationController alloc]
+//                                                                 initWithRootViewController:dropIn];
+//                 [self presentViewController:navigationController animated:YES completion:nil];
+//                 // As an example, you may wish to present our Drop-in UI at this point.
+//                 // Continue to the next section to learn more...
              }
      } failure:^(AFHTTPRequestOperation *operation, NSError *error)
      {
@@ -187,25 +187,25 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (void)dropInViewController:(BTDropInViewController *)viewController
-  didSucceedWithTokenization:(BTPaymentMethodNonce *)paymentMethodNonce
-{
-    // Send payment method nonce to your server for processing
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-    if ([paymentMethodNonce.nonce isEqualToString:@""]||paymentMethodNonce.nonce.length==0)
-    {
-        NSLog(@"Payment nones Not found");
-    }
-    else
-    {
-         [self passSubmitApiWithNones:paymentMethodNonce.nonce];
-    }
-//    [self postNonceToServer:paymentMethodNonce.nonce];
-}
-- (void)dropInViewControllerDidCancel:(__unused BTDropInViewController *)viewController {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+//- (void)dropInViewController:(BTDropInViewController *)viewController
+//  didSucceedWithTokenization:(BTPaymentMethodNonce *)paymentMethodNonce
+//{
+//    // Send payment method nonce to your server for processing
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//    
+//    if ([paymentMethodNonce.nonce isEqualToString:@""]||paymentMethodNonce.nonce.length==0)
+//    {
+//        NSLog(@"Payment nones Not found");
+//    }
+//    else
+//    {
+//         [self passSubmitApiWithNones:paymentMethodNonce.nonce];
+//    }
+////    [self postNonceToServer:paymentMethodNonce.nonce];
+//}
+//- (void)dropInViewControllerDidCancel:(__unused BTDropInViewController *)viewController {
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
 - (void)postNonceToServer:(NSString *)paymentMethodNonce
 {
     // Update URL with your server

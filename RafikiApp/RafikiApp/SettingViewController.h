@@ -10,16 +10,16 @@
 #import "SWRevealViewController.h"
 #import "RearViewController.h"
 
-#import "BraintreeCore.h"
-#import "BraintreeUI.h"
-#import "BraintreePayPal.h"
-#import "BecomeRafikkiVC.h"
+//#import "BraintreeCore.h"
+//#import "BraintreeUI.h"
+//#import "BraintreePayPal.h"
+//#import "BecomeRafikkiVC.h"
 
-@interface SettingViewController : UIViewController<BTDropInViewControllerDelegate,BTAppSwitchDelegate, BTViewControllerPresentingDelegate>
+@interface SettingViewController : UIViewController//<BTDropInViewControllerDelegate,BTAppSwitchDelegate, BTViewControllerPresentingDelegate>
 {
     IBOutlet UIButton *sliderButton;
 }
 - (IBAction)becomeRaffikiAction:(id)sender;
-@property (nonatomic, strong) BTPayPalDriver *payPalDriver;
-@property (nonatomic, strong) BTAPIClient *braintreeClient;
+//@property (nonatomic, strong) BTPayPalDriver *payPalDriver;
+//@property (nonatomic, strong) BTAPIClient *braintreeClient;
 @end
