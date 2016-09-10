@@ -36,7 +36,6 @@
 }
 - (IBAction)sendAginAction:(id)sender
 {
-    // http://cricyard.com/iphone/rafiki_app/service/resendcode.php?user_id=89
     NSString *UserId=[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
     NSString *urlStr =[NSString stringWithFormat:@"http://cricyard.com/iphone/rafiki_app/service/resendcode.php"];
     NSDictionary *dictParams = @{
@@ -80,45 +79,46 @@
 }
 - (IBAction)veryfyAction:(id)sender
 {
-    NSString *UserId=[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
-    NSString *urlStr =[NSString stringWithFormat:@"http://cricyard.com/iphone/rafiki_app/service/verifycode.php"];
-    NSDictionary *dictParams = @{
-                                 @"user_id":UserId,
-                                 @"code":emailTxt.text
-                                 };
-    NSString *encodedString = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager GET:encodedString parameters:dictParams success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSLog(@"Response: %@",responseObject);
-            NSDictionary  *resposeDics=(NSDictionary *) responseObject;
-            NSLog(@"masseg is:%@",[resposeDics valueForKey:@"staus"]);
+//    NSString *UserId=[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
+//    NSString *urlStr =[NSString stringWithFormat:@"http://cricyard.com/iphone/rafiki_app/service/verifycode.php"];
+//    NSDictionary *dictParams = @{
+//                                 @"user_id":UserId,
+//                                 @"code":emailTxt.text
+//                                 };
+//    NSString *encodedString = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+//    [manager GET:encodedString parameters:dictParams success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//            NSLog(@"Response: %@",responseObject);
+//            NSDictionary  *resposeDics=(NSDictionary *) responseObject;
+//            NSLog(@"masseg is:%@",[resposeDics valueForKey:@"staus"]);
             //resposeDics valueForKey:@"Signup Successfully ");
-            if ([[responseObject valueForKey:@"staus"] isEqualToString:@"1"])
-            {
+//            if ([[responseObject valueForKey:@"staus"] isEqualToString:@"1"])
+    
+            //{
                 UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Rafikki App" message:nil delegate:self cancelButtonTitle:@"Next" otherButtonTitles:@"Save & Next", nil];
                 [alert show];
-            }
-            else
-            {
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Code Does not match!!"
-                                                                    message:nil
-                                                                   delegate:nil
-                                                          cancelButtonTitle:@"Ok"
-                                                          otherButtonTitles:nil];
-                [alertView show];
-            }
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            
-            // 4
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving"
-                                                                message:[error localizedDescription]
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"Ok"
-                                                      otherButtonTitles:nil];
-            [alertView show];
-        }];
+            //}
+//            else
+//            {
+//                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Code Does not match!!"
+//                                                                    message:nil
+//                                                                   delegate:nil
+//                                                          cancelButtonTitle:@"Ok"
+//                                                          otherButtonTitles:nil];
+//                [alertView show];
+//            }
+//        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//            
+//            // 4
+//            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving"
+//                                                                message:[error localizedDescription]
+//                                                               delegate:nil
+//                                                      cancelButtonTitle:@"Ok"
+//                                                      otherButtonTitles:nil];
+//            [alertView show];
+//        }];
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {

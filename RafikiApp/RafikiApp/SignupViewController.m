@@ -192,9 +192,30 @@
                              completion:^(FIRUser * _Nullable user, NSError * _Nullable error) {
                                  if (error) {
                                      NSLog(@"%@", error.localizedDescription);
+                                     NSLog(@"Some problem Occures");
+                                    [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"email Or username Exist"
+                                                                                                     message:nil
+                                                                                                    delegate:nil
+                                                                                           cancelButtonTitle:@"Ok"
+                                                                                           otherButtonTitles:nil];
+                                    [alertView show];
                                      return;
                                  }
 //                                 [self setDisplayName:user];
+                                 // Email Subject
+                                 NSString *emailTitle = @"Rafikki verification code";
+                                 // Email Content
+                                 NSString *messageBody = @"Your verification code is 1234";
+                                 // To address
+                                 NSArray *toRecipents = [NSArray arrayWithObject:@"izaacgarcilazo@msn.com"];
+                                 
+                                 MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+                                 //mc.mailComposeDelegate = self;
+                                 [mc setSubject:emailTitle];
+                                 [mc setMessageBody:messageBody isHTML:NO];
+                                 [mc setToRecipients:toRecipents];
+
                                  UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Rafikki App" message:nil delegate:self cancelButtonTitle:@"Next" otherButtonTitles:@"Save & Next", nil];
                                              [alert show];
                              }];
