@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1E4EEEF1C187C71408D2A770 /* Pods_RafikiApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF0F9C77CE884D98293A40CC /* Pods_RafikiApp.framework */; };
 		27210362492F6FD7FDDADFB9 /* Pods_RafikiAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC9309529472EDA4E2FEF2E8 /* Pods_RafikiAppUITests.framework */; };
+		2DFA8E4E1D89FC1800DB3458 /* Viewcontroller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DFA8E4D1D89FC1800DB3458 /* Viewcontroller.xib */; };
 		65067A551D828848002C0463 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65067A541D828848002C0463 /* GoogleService-Info.plist */; };
 		B3D60949F062289984654E3C /* Pods_RafikiAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D720C7333FAF57164E2E3217 /* Pods_RafikiAppTests.framework */; };
 		D307306A1C9C24FD00AF41CE /* SelectAndAddPaymentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D30730681C9C24FD00AF41CE /* SelectAndAddPaymentVC.m */; };
@@ -183,7 +184,6 @@
 		D3E73C081C2BF90D0069B97F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3E73C061C2BF90D0069B97F /* LaunchScreen.storyboard */; };
 		D3E73C131C2BF90D0069B97F /* RafikiAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E73C121C2BF90D0069B97F /* RafikiAppTests.m */; };
 		D3E73C1E1C2BF90D0069B97F /* RafikiAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E73C1D1C2BF90D0069B97F /* RafikiAppUITests.m */; };
-		D3E73C2C1C2BF96C0069B97F /* Viewcontroller.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3E73C2B1C2BF96C0069B97F /* Viewcontroller.xib */; };
 		D3E73C321C2C015B0069B97F /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3E73C2E1C2C015B0069B97F /* Roboto-Bold.ttf */; };
 		D3E73C331C2C015B0069B97F /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3E73C2F1C2C015B0069B97F /* Roboto-Medium.ttf */; };
 		D3E73C341C2C015B0069B97F /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3E73C301C2C015B0069B97F /* Roboto-Regular.ttf */; };
@@ -285,6 +285,7 @@
 
 /* Begin PBXFileReference section */
 		1BAA14ED16039D28CD394091 /* Pods-RafikiAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RafikiAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RafikiAppUITests/Pods-RafikiAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2DFA8E4D1D89FC1800DB3458 /* Viewcontroller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Viewcontroller.xib; sourceTree = "<group>"; };
 		65067A541D828848002C0463 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A2444E973C9CFEED7A584F4B /* Pods-RafikiAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RafikiAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RafikiAppTests/Pods-RafikiAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C3CFD884B03B1D3A81D76EF9 /* Pods-RafikiAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RafikiAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RafikiAppUITests/Pods-RafikiAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -562,7 +563,6 @@
 		D3E73C191C2BF90D0069B97F /* RafikiAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RafikiAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3E73C1D1C2BF90D0069B97F /* RafikiAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RafikiAppUITests.m; sourceTree = "<group>"; };
 		D3E73C1F1C2BF90D0069B97F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D3E73C2B1C2BF96C0069B97F /* Viewcontroller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Viewcontroller.xib; sourceTree = "<group>"; };
 		D3E73C2E1C2C015B0069B97F /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		D3E73C2F1C2C015B0069B97F /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		D3E73C301C2C015B0069B97F /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -924,7 +924,7 @@
 			children = (
 				D3E73BFE1C2BF90D0069B97F /* ViewController.h */,
 				D3E73BFF1C2BF90D0069B97F /* ViewController.m */,
-				D3E73C2B1C2BF96C0069B97F /* Viewcontroller.xib */,
+				2DFA8E4D1D89FC1800DB3458 /* Viewcontroller.xib */,
 				D3E73C371C2C02010069B97F /* SignupViewController.h */,
 				D3E73C381C2C02010069B97F /* SignupViewController.m */,
 				D3E73C391C2C02010069B97F /* SignupViewController.xib */,
@@ -1568,7 +1568,6 @@
 				D3DDC1D31CA148ED007B16AF /* my10.png in Resources */,
 				D3DF305D1CA02248009EF912 /* Whilbg.png in Resources */,
 				D3E8709B1C6F495300198AF0 /* Icon-Small@2x.png in Resources */,
-				D3E73C2C1C2BF96C0069B97F /* Viewcontroller.xib in Resources */,
 				D3DDC1D41CA148ED007B16AF /* my11.png in Resources */,
 				D3E974CD1CB93AE800F70E27 /* PhotoIdVC.xib in Resources */,
 				D3E73C321C2C015B0069B97F /* Roboto-Bold.ttf in Resources */,
@@ -1595,6 +1594,7 @@
 				D3E870911C6F495300198AF0 /* Icon-60@2x.png in Resources */,
 				D3E767BA1C33A16900D532EA /* MessageListCell.xib in Resources */,
 				D3DF28901C6DAB4800BFDFA1 /* AddCatViewController.xib in Resources */,
+				2DFA8E4E1D89FC1800DB3458 /* Viewcontroller.xib in Resources */,
 				D3D0E47C1CA5760700B2AB51 /* check&DiclosesVC.xib in Resources */,
 				D3DD59D61C32CC38002658D2 /* jobHistoryTableViewCell.xib in Resources */,
 				D3DF7D2F1C61F13A000858E1 /* VeryficationVC.xib in Resources */,
