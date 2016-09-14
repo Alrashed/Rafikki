@@ -21,6 +21,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // [START create_database_reference]
+    self.ref = [[FIRDatabase database] reference];
+    // [END create_database_reference]
+
+    
     [self setNeedsStatusBarAppearanceUpdate];
     
     if ([TxtemailAddress respondsToSelector:@selector(setAttributedPlaceholder:)])
@@ -108,10 +114,28 @@
                          completion:^(FIRUser * _Nullable user, NSError * _Nullable error) {
                              if (error) {
                                  NSLog(@"%@", error.localizedDescription);
+                                 [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                                 UIAlertController * alert=[UIAlertController
+                                                                            alertControllerWithTitle:@"Invalid username and password!!"
+                                                                            message:nil
+                                                                            preferredStyle:UIAlertControllerStyleAlert];
+                                 
+                                                 UIAlertAction* yesButton = [UIAlertAction
+                                                                             actionWithTitle:@"Ok"
+                                                                             style:UIAlertActionStyleDefault
+                                                                             handler:^(UIAlertAction * action)
+                                                                             {
+                                                                                 //Handel your yes please button action here
+                                                                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                                                                             }];
+                                                 [alert addAction:yesButton];
+                                                 [self presentViewController:alert animated:YES completion:nil];
+
                                  return;
                              }
                              //[self signedIn:user];
                              //[self signInApiCall];
+                                                                                       
                              [self passUpdateDeviceToken];
                          }];
 //    NSString *tocken=[[NSUserDefaults standardUserDefaults] objectForKey:@"Tocken"];

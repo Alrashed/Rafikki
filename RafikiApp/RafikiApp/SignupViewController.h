@@ -11,7 +11,7 @@
 #import "ViewController.h"
 #import "HomeViewController.h"
 #import "PersonalViewController.h"
-
+@import Firebase;
 
 #import "ProffesionalViewController.h"
 #import "MBProgressHUD.h"
@@ -29,6 +29,7 @@
     
     NSString *typeUserStr;
 }
+@property(strong, nonatomic) FIRDatabaseReference *ref;
 @property (retain, nonatomic) DVSwitch *switcher;
 - (IBAction)signUpAction:(id)sender;
 - (IBAction)loginAction:(id)sender;

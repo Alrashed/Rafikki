@@ -11,6 +11,8 @@
 #import "MBProgressHUD.h"
 #import "HomeViewController.h"
 #import "SocialSecurityVC.h"
+@import Firebase;
+
 @interface PersonalViewController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate>
 {
     
@@ -46,6 +48,8 @@
     IBOutlet UITextField *birthPlaceTxt;
     IBOutlet UITextField *schoolNameTxt;
 }
+@property(strong, nonatomic) FIRDatabaseReference *ref;
+
 - (IBAction)privacyAction:(id)sender;
 @property(nonatomic,retain)NSString *signupFlag;
 - (IBAction)nextAction:(id)sender;

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SignupViewController.h"
 #import "ExpertHomeViewController.h"
+@import Firebase;
 @interface ViewController : UIViewController
 {
     
@@ -16,6 +17,7 @@
     IBOutlet UITextField *Txtpassword;
     IBOutlet UIButton *signinButton;
 }
+@property(strong, nonatomic) FIRDatabaseReference *ref;
 - (IBAction)signInAction:(id)sender;
 - (IBAction)signUpAction:(id)sender;
 @end

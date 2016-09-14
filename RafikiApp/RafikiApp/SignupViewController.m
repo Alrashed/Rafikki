@@ -20,6 +20,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // [START create_database_reference]
+    self.ref = [[FIRDatabase database] reference];
+    // [END create_database_reference]
     
     NSInteger margin = 30;
     typeUserStr=@"User";
@@ -202,6 +205,15 @@
                                     [alertView show];
                                      return;
                                  }
+                                 
+                                 [[[_ref child:@"users"] child:user.uid]
+                                  setValue:@{
+                                             @"userType": typeUserStr,
+                                             @"username": TxtUsername.text,
+                                             @"email": email,
+                                             @"phone": TxtPhoneNumber.text,                                                                                          
+                                             }];
+                                 
 //                                 [self setDisplayName:user];
                                  // Email Subject
                                  NSString *emailTitle = @"Rafikki verification code";
