@@ -179,8 +179,29 @@
     //  - https://<YOUR-FIREBASE-APP>.firebaseio.com/users/<uid>
 //    [[[_ref childByAppendingPath:@"users"]
 //      childByAppendingPath:user.uid] setValue:newUser];
-//    
-    
+//
+    [[NSUserDefaults standardUserDefaults] setObject:TxtFirstName.text forKey:@"firstName"];
+    [[NSUserDefaults standardUserDefaults] setObject:TxtLastName.text forKey:@"lastName"];
+    [[NSUserDefaults standardUserDefaults] setObject:ganderStr forKey:@"gender"];
+    [[NSUserDefaults standardUserDefaults] setObject:imageReturnString forKey:@"profilePic"];
+    [[NSUserDefaults standardUserDefaults] setObject:dateOfbirthButton.currentTitle forKey:@"BirthDate"];
+    [[NSUserDefaults standardUserDefaults] setObject:aboutMeTxt.text forKey:@"aboutMe"];
+    [[NSUserDefaults standardUserDefaults] setObject:nickNameTxt.text forKey:@"nickName"];
+    NSLog(@"isFiled is:%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"is_filledValue"]);
+    [[NSUserDefaults standardUserDefaults] setObject:@"No" forKey:@"payment_method_add"];
+                        
+
+    NSString *userIdStr=[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
+    NSDictionary *dictParams = @{
+                                                                      @"firstname":TxtFirstName.text,
+                                                                      @"lastname":TxtLastName.text,
+                                                                      @"gender":ganderStr,
+                                                                      @"profilepic":imageReturnString,
+                                                                      @"userid":userIdStr,
+                                                                      @"about_me":aboutMeTxt.text,
+                                                                      @"dob":dateOfbirthButton.titleLabel.text,
+                                                                      @"nikename":nickNameTxt.text
+                                                                      };
     
     
     
@@ -330,51 +351,51 @@
     else if (alertView.tag==2000)
     {
         
-//        if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"userType"]isEqualToString:@"1"])
-//        {
-//            if (buttonIndex==0)
-//            {
-//                //Next
-//                [[NSUserDefaults standardUserDefaults] setObject:@"Yes" forKey:@"loginCheck"];
-//                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"screen1_basic"];
-//                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"screen2_verify"];
-//                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"screen3_personal"];
-//                
-////                [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"is_filledValue"];
-//                HomeViewController *home=[[HomeViewController alloc] init];
-//                [self.navigationController pushViewController:home animated:YES];
-//            }
-//            else
-//            {
-//                //Save & Next
-//                [[NSUserDefaults standardUserDefaults] setObject:@"Yes" forKey:@"loginCheck"];
-//                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"screen1_basic"];
-//                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"screen2_verify"];
-//                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"screen3_personal"];
-//                
-////                [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"is_filledValue"];
-//                HomeViewController *home=[[HomeViewController alloc] init];
-//                [self.navigationController pushViewController:home animated:YES];
-//            }
-//        }
-//        else
-//        {
-//            if (buttonIndex==0)
-//            {
-//                //Next
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"userType"]isEqualToString:@"1"])
+        {
+            if (buttonIndex==0)
+            {
+                //Next
+                [[NSUserDefaults standardUserDefaults] setObject:@"Yes" forKey:@"loginCheck"];
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"screen1_basic"];
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"screen2_verify"];
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"screen3_personal"];
+                
 //                [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"is_filledValue"];
-//                SocialSecurityVC *social=[[SocialSecurityVC alloc] init];
-//                [self.navigationController pushViewController:social animated:YES];
-//            }
-//            else
-//            {
-//                //Save & Next
-//                [[NSUserDefaults standardUserDefaults] setObject:@"save" forKey:@"screen3_personal"];
+                HomeViewController *home=[[HomeViewController alloc] init];
+                [self.navigationController pushViewController:home animated:YES];
+            }
+            else
+            {
+                //Save & Next
+                [[NSUserDefaults standardUserDefaults] setObject:@"Yes" forKey:@"loginCheck"];
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"screen1_basic"];
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"screen2_verify"];
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"screen3_personal"];
+                
 //                [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"is_filledValue"];
-//                SocialSecurityVC *social=[[SocialSecurityVC alloc] init];
-//                [self.navigationController pushViewController:social animated:YES];
-//            }
-//        }
+                HomeViewController *home=[[HomeViewController alloc] init];
+                [self.navigationController pushViewController:home animated:YES];
+            }
+        }
+        else
+        {
+            if (buttonIndex==0)
+            {
+                //Next
+                [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"is_filledValue"];
+                SocialSecurityVC *social=[[SocialSecurityVC alloc] init];
+                [self.navigationController pushViewController:social animated:YES];
+            }
+            else
+            {
+                //Save & Next
+                [[NSUserDefaults standardUserDefaults] setObject:@"save" forKey:@"screen3_personal"];
+                [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"is_filledValue"];
+                SocialSecurityVC *social=[[SocialSecurityVC alloc] init];
+                [self.navigationController pushViewController:social animated:YES];
+            }
+        }
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         HomeViewController *home=[[HomeViewController alloc] init];
         [self.navigationController pushViewController:home animated:YES];

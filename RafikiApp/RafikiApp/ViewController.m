@@ -10,6 +10,7 @@
 #import "AFNetworking/AFNetworking.h"
 @import Firebase;
 
+
 @interface ViewController ()
 
 @end
@@ -25,7 +26,6 @@
     // [START create_database_reference]
     self.ref = [[FIRDatabase database] reference];
     // [END create_database_reference]
-
     
     [self setNeedsStatusBarAppearanceUpdate];
     
@@ -133,6 +133,74 @@
 
                                  return;
                              }
+                             NSLog(@"start search for users");
+                             NSDictionary *dictParams = @{
+                                                          @"email":TxtemailAddress.text,
+                                                          @"password":Txtpassword.text
+                                                        };
+                             NSDictionary  *resposeDics;
+                             NSDictionary *dict;
+                             NSString *key;
+                             
+                             //FIRDatabaseQuery *userprofile = [[[_ref child:@"users"] child:user.uid]];
+                             
+                             FIRDatabaseQuery *userprofile = [[_ref child:@"users"]queryEqualToValue:user.uid];
+                             
+                             [userprofile observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot *snapshot) {
+                    
+                                 NSLog(@"%@ was %@ meters tall", snapshot.key, snapshot.value[@"firstname"]);
+                             }];
+                             NSLog(@"%@ppppppppp", key);
+                             
+                             [[_ref queryOrderedByChild:@"firstname"]
+                              observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot *snapshot) {
+                                  NSLog(@"%@ was %@ meters tall", snapshot.key, snapshot.value[@"firstname"]);
+                              }];
+                             
+                             FIRDatabaseQuery *myTopPostsQuery = [_ref child:@"users"];
+                             [myTopPostsQuery observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot *snapshot) {
+                                 NSLog(@"%@", snapshot.value);
+                             } withCancelBlock:^(NSError *error) {
+                                 NSLog(@"%@", error.description);
+                             }];
+                             NSLog(@"%@ppppppdffffppp", myTopPostsQuery);
+
+
+                    
+                             
+                             
+                             
+                            [[NSUserDefaults standardUserDefaults] setObject:@"abc"  forKey:@"userName"];
+                            [[NSUserDefaults standardUserDefaults] setObject:@"abc"  forKey:@"userName"];
+                             
+                            [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics  valueForKey:@"data"]valueForKey:@"email"] forKey:@"userEmail"];
+                            [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"password"] forKey:@"userPassword"];
+                            [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics  valueForKey:@"data"] valueForKey:@"phone_no"] forKey:@"userPhone"];
+                            [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics  valueForKey:@"data"] valueForKey:@"user_id"] forKey:@"userId"];
+                                                 NSLog(@"my data is:%ld",[[NSUserDefaults standardUserDefaults] integerForKey:@"userId"]);
+                             
+                                                 [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"user_type"] forKey:@"userType"];
+                             
+                                                 [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"firstname"] forKey:@"firstName"];
+                                                 [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"lastname"] forKey:@"lastName"];
+                                                 [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"gender"] forKey:@"gender"];
+                                                 [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"user_image"] forKey:@"profilePic"];
+                                                 [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"birthdate"] forKey:@"birthDate"];
+                             
+                                                 [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"about_me"] forKey:@"aboutMe"];
+                             
+                                                 [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"nikename"] forKey:@"nickName"];
+                             
+                                                 NSLog(@"my password:%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"userPassword"]);
+//                                                 NSLog(@"my birth date is:%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"birthDate"]);
+//                                                 [[NSUserDefaults standardUserDefaults] setObject:[[responseObject valueForKey:@"data"] valueForKey:@"is_filled"] forKey:@"is_filledValue"];
+//                             //                    [[NSUserDefaults standardUserDefaults] setObject:[[responseObject valueForKey:@"data"] valueForKey:@"home"] forKey:@"home"];
+//                                                 
+//                                                 [[NSUserDefaults standardUserDefaults] setObject:[[responseObject valueForKey:@"data"] valueForKey:@"payment_method_add"] forKey:@"payment_method_add"];
+//                                                 
+//                                                 [[NSUserDefaults standardUserDefaults] setObject:@"Yes" forKey:@"loginCheck"];
+//                                                 [[NSUserDefaults standardUserDefaults] setObject:[[responseObject valueForKey:@"data"] valueForKey:@"location"] forKey:@"location"];
+//                                                 [self passUpdateDeviceToken];
                              //[self signedIn:user];
                              //[self signInApiCall];
                                                                                        
@@ -282,16 +350,16 @@
 }
 -(void)passUpdateDeviceToken
 {
-//    NSString *useridStr=[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
-//    NSString *tockenStr=[[NSUserDefaults standardUserDefaults] objectForKey:@"Tocken"];
-//    
-//    if ([tockenStr isEqualToString:@""]||tockenStr.length==0)
-//    {
-//        tockenStr=@"123456789789456123";
-//    }
-//    
+    NSString *useridStr=[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
+    NSString *tockenStr=[[NSUserDefaults standardUserDefaults] objectForKey:@"Tocken"];
+
+    if ([tockenStr isEqualToString:@""]||tockenStr.length==0)
+    {
+        tockenStr=@"123456789789456123";
+    }
+//
 //    NSString *urlStr =[NSString stringWithFormat:@"http://cricyard.com/iphone/rafiki_app/service/update_device_token.php"];
-//    NSDictionary *dictParams = @{@"userid":useridStr,@"device_token":tockenStr,@"device_type":@"1"};
+    //NSDictionary *dictParams = @{@"userid":useridStr,@"device_token":tockenStr,@"device_type":@"1"};
 //    NSString *encodedString = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 //    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 //    manager.requestSerializer = [AFJSONRequestSerializer serializer];
@@ -321,6 +389,7 @@
 //                                                   otherButtonTitles:nil];
 //         [alertView show];
 //     }];
+    NSString *userTypeStr= @"1";//[[NSUserDefaults standardUserDefaults] objectForKey:@"userType"];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
     HomeViewController *home=[[HomeViewController alloc] init];
     [self.navigationController pushViewController:home animated:YES];

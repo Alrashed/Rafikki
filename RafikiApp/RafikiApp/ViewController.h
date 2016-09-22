@@ -18,6 +18,7 @@
     IBOutlet UIButton *signinButton;
 }
 @property(strong, nonatomic) FIRDatabaseReference *ref;
+
 - (IBAction)signInAction:(id)sender;
 - (IBAction)signUpAction:(id)sender;
 @end
