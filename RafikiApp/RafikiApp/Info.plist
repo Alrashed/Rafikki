@@ -87,5 +87,12 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
+
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Rafikki wants to access photo library</string>
+
+	
+	<key>NSCameraUsageDescription</key>
+	<string>Rafikki wants to access camera</string>
 </dict>
 </plist>

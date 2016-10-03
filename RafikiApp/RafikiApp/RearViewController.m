@@ -72,7 +72,10 @@
     userImageview.layer.borderWidth=2;
     userImageview.layer.borderColor=[UIColor whiteColor].CGColor;
     [self setNeedsStatusBarAppearanceUpdate];
-    NSString *name=[NSString stringWithFormat:@"%@ %@",[[NSUserDefaults standardUserDefaults] objectForKey:@"firstName"],[[NSUserDefaults standardUserDefaults] objectForKey:@"lastName"]];
+    NSString *fname = [[NSUserDefaults standardUserDefaults] stringForKey:@"firstName"];
+    NSString *lname = [[NSUserDefaults standardUserDefaults] stringForKey:@"lastName"];
+    NSString *name=[NSString stringWithFormat:@"%@ %@",fname, lname];
+    
     if (name ==(id)[NSNull null]||[name isEqualToString:@"(null) (null)"]||name==nil)
     {
         userNameLbl.text=@"Raffiki User";
@@ -84,11 +87,15 @@
     }
     else
     {
-        userNameLbl.text=[NSString stringWithFormat:@"%@ %@",[[NSUserDefaults standardUserDefaults] objectForKey:@"firstName"],[[NSUserDefaults standardUserDefaults] objectForKey:@"lastName"]];
+        NSString *profileStr=[[NSUserDefaults standardUserDefaults] valueForKey:@"profilePic"];
+        NSData *data3 = [[NSData alloc]initWithBase64EncodedString:profileStr options:NSDataBase64DecodingIgnoreUnknownCharacters];
+        UIImage *ret = [UIImage imageWithData:data3];
+        userNameLbl.text= name;
         modeButton.hidden=NO;
         modeDropDownImg.hidden=NO;
         modeUserImageView.hidden=NO;
         modeView.hidden=YES;
+        [userImageview setImage:ret];
 
         if ([userTypeStr isEqualToString:@"1"])
         {
@@ -99,9 +106,6 @@
             [modeButton setTitle:@"Rafikki" forState:UIControlStateNormal];
         }
     }
-    NSString *profileStr=[[NSUserDefaults standardUserDefaults] objectForKey:@"profilePic"];
-    
-    [userImageview setImageWithURL:[NSURL URLWithString:profileStr] placeholderImage:[UIImage imageNamed:@"photo"] usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     
     upperArray=[[NSMutableArray alloc] initWithObjects:@"Home",@"Map",@"Activity",@"Messages",@"Payment",@"Setting",@"Help",nil];
     iconArray=[[NSMutableArray alloc] initWithObjects:@"home",@"near",@"desk",@"message",@"paycheck",@"settingicon",@"help",nil];
@@ -109,7 +113,7 @@
     
     ExpertUpperArray=[[NSMutableArray alloc] initWithObjects:@"Schedule",@"Messages",@"Clients",@"Paycheck",@"Setting",@"Help",nil];
     ExpertIconArray=[[NSMutableArray alloc] initWithObjects:@"home",@"message",@"client",@"paycheck",@"settingicon",@"help",nil];
-    NSString *useridStr=[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
+    NSString *useridStr=[[NSUserDefaults standardUserDefaults] stringForKey:@"userId"];
 
     if (![useridStr isEqualToString:@""]||useridStr!=nil||useridStr!=(id)[NSNull null])
     {
@@ -118,17 +122,17 @@
 }
 -(void)passGetCounterApiWithIndex:(NSUInteger)index
 {
-    NSString *useridStr=[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
-    
-    NSString *urlStr =[NSString stringWithFormat:@"http://cricyard.com/iphone/rafiki_app/service//count_unread_message.php"];
-    NSDictionary *dictParams = @{@"user_id":useridStr};
-    NSString *encodedString = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager GET:encodedString parameters:dictParams success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Response: %@",responseObject);
-        if (![[responseObject valueForKey:@"total_message_count"]isEqualToString:@"0"])
-        {
+//    NSString *useridStr=[[NSUserDefaults standardUserDefaults] stringForKey:@"userId"];
+//    
+//    NSString *urlStr =[NSString stringWithFormat:@"http://cricyard.com/iphone/rafiki_app/service//count_unread_message.php"];
+//    NSDictionary *dictParams = @{@"user_id":useridStr};
+//    NSString *encodedString = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+//    [manager GET:encodedString parameters:dictParams success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSLog(@"Response: %@",responseObject);
+//        if (![[responseObject valueForKey:@"total_message_count"]isEqualToString:@"0"])
+//        {
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
             UITableViewCell *cell = (UITableViewCell *) [self.rearTableView cellForRowAtIndexPath:indexPath];
             for (UIView *subview in [cell subviews])
@@ -136,7 +140,8 @@
                 if ([subview isKindOfClass:[UILabel class]])
                 {
                     UILabel *MessageCounterLbl=(UILabel *)subview;
-                    MessageCounterLbl.text=[responseObject valueForKey:@"total_message_count"];
+//                    MessageCounterLbl.text=[responseObject valueForKey:@"total_message_count"];
+                    MessageCounterLbl.text=@"total_message_count";
                     MessageCounterLbl.font=[UIFont fontWithName:@"Roboto-Medium" size:15];
                     MessageCounterLbl.textColor=[UIColor redColor];
                     MessageCounterLbl.textAlignment=NSTextAlignmentCenter;
@@ -145,12 +150,12 @@
                     MessageCounterLbl.clipsToBounds=YES;
                 }
             }
-        }
+        //}
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error)
-     {
-         NSLog(@"problem");
-     }];
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error)
+//     {
+//         NSLog(@"problem");
+//     }];
 }
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
@@ -197,7 +202,12 @@
             
             if ([[upperArray objectAtIndex:indexPath.row] isEqualToString:@"Messages"])
             {
-                NSString *name=[NSString stringWithFormat:@"%@ %@",[[NSUserDefaults standardUserDefaults] objectForKey:@"firstName"],[[NSUserDefaults standardUserDefaults] objectForKey:@"lastName"]];
+//                NSString *name=[NSString stringWithFormat:@"%@ %@",[[NSUserDefaults standardUserDefaults] objectForKey:@"firstName"],[[NSUserDefaults standardUserDefaults] objectForKey:@"lastName"]];
+                
+                NSString *fname = [[NSUserDefaults standardUserDefaults] stringForKey:@"firstName"];
+                NSString *lname = [[NSUserDefaults standardUserDefaults] stringForKey:@"lastName"];
+                NSString *name=[NSString stringWithFormat:@"%@ %@",fname, lname];
+                
                 if (name ==(id)[NSNull null]||[name isEqualToString:@"(null) (null)"]||name==nil)
                 {
                     
@@ -623,41 +633,41 @@
 -(void)passChangeModeApiWithUserid:(NSString *)userid WithUserType:(NSString *)usertype
 {
     // http://cricyard.com/iphone/rafiki_app/service/change_user_type.php?userid=1&type=2
-    NSString *urlStr =[NSString stringWithFormat:@"http://cricyard.com/iphone/rafiki_app/service/change_user_type.php"];
-    NSDictionary *dictParams = @{@"userid":userid,@"type":usertype};
-    NSString *encodedString = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager GET:encodedString parameters:dictParams success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSLog(@"Response: %@",responseObject);
-        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-
-        NSString *filedStr=[responseObject valueForKey:@"is_filled"];
-        NSLog(@"user isFiled:%@",filedStr);
-        [self.rearTableView reloadData];
-        
-        if ([userTypeStr isEqualToString:@"1"])
-        {
+//    NSString *urlStr =[NSString stringWithFormat:@"http://cricyard.com/iphone/rafiki_app/service/change_user_type.php"];
+//    NSDictionary *dictParams = @{@"userid":userid,@"type":usertype};
+//    NSString *encodedString = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+//    [manager GET:encodedString parameters:dictParams success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        
+//        NSLog(@"Response: %@",responseObject);
+//        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+//
+//        NSString *filedStr=[responseObject valueForKey:@"is_filled"];
+//        NSLog(@"user isFiled:%@",filedStr);
+//        [self.rearTableView reloadData];
+//        
+//        if ([userTypeStr isEqualToString:@"1"])
+//        {
             HomeViewController *VC = nil;
             VC = [[HomeViewController alloc] init];
             UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:VC];
             [navigationController setNavigationBarHidden:YES];
             [self.revealViewController pushFrontViewController:navigationController animated:YES];
-        }
-        else
-        {
-            ExpertHomeViewController *VC = nil;
-            VC = [[ExpertHomeViewController alloc] init];
-            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:VC];
-            [navigationController setNavigationBarHidden:YES];
-            [self.revealViewController pushFrontViewController:navigationController animated:YES];
-        }
-
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error)
-     {
-         NSLog(@"problem");
-     }];
+//        }
+//        else
+//        {
+//            ExpertHomeViewController *VC = nil;
+//            VC = [[ExpertHomeViewController alloc] init];
+//            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:VC];
+//            [navigationController setNavigationBarHidden:YES];
+//            [self.revealViewController pushFrontViewController:navigationController animated:YES];
+//        }
+//
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error)
+//     {
+//         NSLog(@"problem");
+//     }];
 }
 -(void)passStatusApi
 {

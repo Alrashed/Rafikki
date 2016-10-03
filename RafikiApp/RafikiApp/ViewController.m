@@ -133,65 +133,93 @@
 
                                  return;
                              }
-                             NSLog(@"start search for users");
-                             NSDictionary *dictParams = @{
+                             
+                            /* NSDictionary *dictParams = @{
                                                           @"email":TxtemailAddress.text,
                                                           @"password":Txtpassword.text
                                                         };
-                             NSDictionary  *resposeDics;
+                             //NSDictionary  *resposeDics;
                              NSDictionary *dict;
                              NSString *key;
                              
-                             //FIRDatabaseQuery *userprofile = [[[_ref child:@"users"] child:user.uid]];
                              
-                             FIRDatabaseQuery *userprofile = [[_ref child:@"users"]queryEqualToValue:user.uid];
-                             
-                             [userprofile observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot *snapshot) {
-                    
-                                 NSLog(@"%@ was %@ meters tall", snapshot.key, snapshot.value[@"firstname"]);
-                             }];
-                             NSLog(@"%@ppppppppp", key);
-                             
-                             [[_ref queryOrderedByChild:@"firstname"]
-                              observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot *snapshot) {
-                                  NSLog(@"%@ was %@ meters tall", snapshot.key, snapshot.value[@"firstname"]);
-                              }];
-                             
-                             FIRDatabaseQuery *myTopPostsQuery = [_ref child:@"users"];
-                             [myTopPostsQuery observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot *snapshot) {
-                                 NSLog(@"%@", snapshot.value);
+                             FIRDatabaseQuery *myUserQuery = [_ref child:@"users"];
+                             [[[myUserQuery queryOrderedByKey] queryEqualToValue:user.uid] observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot *snapshot) {
+                                 //NSLog(@"%@", snapshot.value);
+                                 //NSDictionary *userprofile = snapshot.value;
+                                 NSDictionary  *resposeDics= (NSDictionary *) snapshot.value;
+                                 [[NSUserDefaults standardUserDefaults] setObject:resposeDics forKey:@"gender"];
+                                 NSLog(@"%@my data xxxis", [[NSUserDefaults standardUserDefaults] dictionaryRepresentation]);
+                                 //NSLog(@"my data xxxis:%ld",[[NSUserDefaults standardUserDefaults] integerForKey:@"gender"]);
                              } withCancelBlock:^(NSError *error) {
                                  NSLog(@"%@", error.description);
                              }];
-                             NSLog(@"%@ppppppdffffppp", myTopPostsQuery);
+                             */
+                             
+                             NSString *string1 = @"users/";
+                             NSString *string2 = user.uid;
+                             NSLog(@"%@", string2);
+                             NSString *string3 = [string1 stringByAppendingString:string2];
+                             NSLog(@"%@", string3);
+                             
+                             FIRDatabaseQuery *myUserQuery = [_ref child:string3];
+                             
+                             [[[myUserQuery queryOrderedByKey] queryEqualToValue:@"firstname"]observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot *snapshot) {
+                                 NSString *firstname = snapshot.value;
+                                 NSLog(@"%@", firstname);
+                                 [[NSUserDefaults standardUserDefaults] setValue:firstname forKey:@"firstName"];
+                                 [[NSUserDefaults standardUserDefaults] synchronize];
+//                                 NSString *testname = [[NSUserDefaults standardUserDefaults] stringForKey:@"firstname"];
+//                                 NSLog(@"%@Thisis working", testname);
+//
+//
+                             } withCancelBlock:^(NSError *error) {
+                                 NSLog(@"%@", error.description);
+                             }];
+                             
+                             [[[myUserQuery queryOrderedByKey] queryEqualToValue:@"lastname"]observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot *snapshot) {
+                                 NSString *lastname = snapshot.value;
+                                  NSLog(@"%@", lastname);
+                                 [[NSUserDefaults standardUserDefaults] setValue:lastname forKey:@"lastName"];
+                                 [[NSUserDefaults standardUserDefaults] synchronize];
+                             } withCancelBlock:^(NSError *error) {
+                                 NSLog(@"%@", error.description);
+                             }];
+                             
+                             [[[myUserQuery queryOrderedByKey] queryEqualToValue:@"profilePic"]observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot *snapshot) {
+                                 NSString *profilePic = snapshot.value;
+                                 NSLog(@"%@", profilePic);
+                                 [[NSUserDefaults standardUserDefaults] setValue:profilePic forKey:@"profilePic"];
+                                 [[NSUserDefaults standardUserDefaults] synchronize];
+                             } withCancelBlock:^(NSError *error) {
+                                 NSLog(@"%@", error.description);
+                             }];
 
-
-                    
+                             
+                             [[NSUserDefaults standardUserDefaults] setValue:user.uid forKey:@"userId"];
+                             [[NSUserDefaults standardUserDefaults] synchronize];
                              
                              
                              
-                            [[NSUserDefaults standardUserDefaults] setObject:@"abc"  forKey:@"userName"];
-                            [[NSUserDefaults standardUserDefaults] setObject:@"abc"  forKey:@"userName"];
+                            //[[NSUserDefaults standardUserDefaults] setObject:@"abc"  forKey:@"userName"];
+                           
                              
-                            [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics  valueForKey:@"data"]valueForKey:@"email"] forKey:@"userEmail"];
-                            [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"password"] forKey:@"userPassword"];
+                            /*[[NSUserDefaults standardUserDefaults] setObject:[[resposeDics  valueForKey:@"data"]valueForKey:@"email"] forKey:@"userEmail"];
+                            [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"password"]forKey:@"userPassword"];
                             [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics  valueForKey:@"data"] valueForKey:@"phone_no"] forKey:@"userPhone"];
                             [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics  valueForKey:@"data"] valueForKey:@"user_id"] forKey:@"userId"];
-                                                 NSLog(@"my data is:%ld",[[NSUserDefaults standardUserDefaults] integerForKey:@"userId"]);
+                            [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"user_type"] forKey:@"userType"];
+                            [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"firstname"] forKey:@"firstName"];
+                            [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"lastname"] forKey:@"lastName"];
+                            [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"gender"] forKey:@"gender"];
+                            [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"user_image"] forKey:@"profilePic"];
+                            [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"birthdate"] forKey:@"birthDate"];
                              
-                                                 [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"user_type"] forKey:@"userType"];
+                             NSLog(@"my data xxxis:%ld",[[NSUserDefaults standardUserDefaults] integerForKey:@"gender"]);*/
+                            //[[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"about_me"] forKey:@"aboutMe"];
+                           // [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"nikename"] forKey:@"nickName"];
                              
-                                                 [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"firstname"] forKey:@"firstName"];
-                                                 [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"lastname"] forKey:@"lastName"];
-                                                 [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"gender"] forKey:@"gender"];
-                                                 [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"user_image"] forKey:@"profilePic"];
-                                                 [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"birthdate"] forKey:@"birthDate"];
-                             
-                                                 [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"about_me"] forKey:@"aboutMe"];
-                             
-                                                 [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"nikename"] forKey:@"nickName"];
-                             
-                                                 NSLog(@"my password:%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"userPassword"]);
+                                                 //NSLog(@"my password:%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"userPassword"]);
 //                                                 NSLog(@"my birth date is:%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"birthDate"]);
 //                                                 [[NSUserDefaults standardUserDefaults] setObject:[[responseObject valueForKey:@"data"] valueForKey:@"is_filled"] forKey:@"is_filledValue"];
 //                             //                    [[NSUserDefaults standardUserDefaults] setObject:[[responseObject valueForKey:@"data"] valueForKey:@"home"] forKey:@"home"];

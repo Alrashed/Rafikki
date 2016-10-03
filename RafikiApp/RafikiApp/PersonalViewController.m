@@ -150,6 +150,13 @@
     [[[[_ref child:@"users"] child:user.uid] child:@"about_me"] setValue:aboutMeTxt.text];
     [[[[_ref child:@"users"] child:user.uid] child:@"nickname"] setValue:nickNameTxt.text];
     [[[[_ref child:@"users"] child:user.uid] child:@"birthdate"] setValue:dateOfbirthButton.titleLabel.text];
+        //NSData *itemData=UIImageJPEGRepresentation(currentImage, 0.6);
+    
+    NSString *profPic = [UIImagePNGRepresentation(currentImage) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+    NSLog(@"%@Thisis working", profPic);
+//    [[[[_ref child:@"users"] child:user.uid] child:@"profilePic"] setValue:[UIImagePNGRepresentation(currentImage) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength]];
+    [[[[_ref child:@"users"] child:user.uid] child:@"profilePic"] setValue:profPic];
+
     
     
 //    FIRUserProfileChangeRequest *changeRequest = [user profileChangeRequest];
@@ -180,30 +187,33 @@
 //    [[[_ref childByAppendingPath:@"users"]
 //      childByAppendingPath:user.uid] setValue:newUser];
 //
-    [[NSUserDefaults standardUserDefaults] setObject:TxtFirstName.text forKey:@"firstName"];
-    [[NSUserDefaults standardUserDefaults] setObject:TxtLastName.text forKey:@"lastName"];
-    [[NSUserDefaults standardUserDefaults] setObject:ganderStr forKey:@"gender"];
-    [[NSUserDefaults standardUserDefaults] setObject:imageReturnString forKey:@"profilePic"];
-    [[NSUserDefaults standardUserDefaults] setObject:dateOfbirthButton.currentTitle forKey:@"BirthDate"];
-    [[NSUserDefaults standardUserDefaults] setObject:aboutMeTxt.text forKey:@"aboutMe"];
-    [[NSUserDefaults standardUserDefaults] setObject:nickNameTxt.text forKey:@"nickName"];
-    NSLog(@"isFiled is:%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"is_filledValue"]);
-    [[NSUserDefaults standardUserDefaults] setObject:@"No" forKey:@"payment_method_add"];
-                        
-
-    NSString *userIdStr=[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
-    NSDictionary *dictParams = @{
-                                                                      @"firstname":TxtFirstName.text,
-                                                                      @"lastname":TxtLastName.text,
-                                                                      @"gender":ganderStr,
-                                                                      @"profilepic":imageReturnString,
-                                                                      @"userid":userIdStr,
-                                                                      @"about_me":aboutMeTxt.text,
-                                                                      @"dob":dateOfbirthButton.titleLabel.text,
-                                                                      @"nikename":nickNameTxt.text
-                                                                      };
     
     
+    //--------------fix this------------//
+//    [[NSUserDefaults standardUserDefaults] setObject:TxtFirstName.text forKey:@"firstName"];
+//    [[NSUserDefaults standardUserDefaults] setObject:TxtLastName.text forKey:@"lastName"];
+//    [[NSUserDefaults standardUserDefaults] setObject:ganderStr forKey:@"gender"];
+//    [[NSUserDefaults standardUserDefaults] setObject:imageReturnString forKey:@"profilePic"];
+//    [[NSUserDefaults standardUserDefaults] setObject:dateOfbirthButton.currentTitle forKey:@"BirthDate"];
+//    [[NSUserDefaults standardUserDefaults] setObject:aboutMeTxt.text forKey:@"aboutMe"];
+//    [[NSUserDefaults standardUserDefaults] setObject:nickNameTxt.text forKey:@"nickName"];
+//    NSLog(@"isFiled is:%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"is_filledValue"]);
+//    [[NSUserDefaults standardUserDefaults] setObject:@"No" forKey:@"payment_method_add"];
+//                        
+//
+//    NSString *userIdStr=[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
+//    NSDictionary *dictParams = @{
+//                                                                      @"firstname":TxtFirstName.text,
+//                                                                      @"lastname":TxtLastName.text,
+//                                                                      @"gender":ganderStr,
+//                                                                      @"profilepic":imageReturnString,
+//                                                                      @"userid":userIdStr,
+//                                                                      @"about_me":aboutMeTxt.text,
+//                                                                      @"dob":dateOfbirthButton.titleLabel.text,
+//                                                                      @"nikename":nickNameTxt.text
+//                                                                      };
+//    
+//    -------------------------
     
     UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Rafikki App" message:nil delegate:self cancelButtonTitle:@"Next" otherButtonTitles:@"Save & Next", nil];
     alert.tag=2000;
@@ -406,7 +416,8 @@
     [self SignupPersonalApiCall];
 }
 #pragma mark imagepeker Delgate Methods
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+//- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *, id> *)info
 {
     currentImage=[info objectForKey:UIImagePickerControllerOriginalImage];
     userPictureImageview.image=currentImage;
