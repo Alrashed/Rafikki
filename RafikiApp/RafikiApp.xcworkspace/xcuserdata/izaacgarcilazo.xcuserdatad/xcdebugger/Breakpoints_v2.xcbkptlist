@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RafikiApp/ViewController.h"
-            timestampString = "496213738.001281"
+            timestampString = "497205700.66226"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
             landmarkName = "-signInAction:"
             landmarkType = "6">
          </BreakpointContent>

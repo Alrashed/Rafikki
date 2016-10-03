@@ -134,7 +134,7 @@
 {
     return UIStatusBarStyleLightContent;
 }
-- (IBAction)becomeRaffikiAction:(id)sender {
+- (IBAction)becomeRafikkiAction:(id)sender {
     BecomeRafikkiVC *bVC=[[BecomeRafikkiVC alloc] init];
     [self.navigationController pushViewController:bVC animated:YES];
 }

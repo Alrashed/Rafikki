@@ -16,10 +16,12 @@
     IBOutlet UITextField *TxtemailAddress;
     IBOutlet UITextField *Txtpassword;
     IBOutlet UIButton *signinButton;
+    IBOutlet UIButton *homeBtn;
 }
 @property(strong, nonatomic) FIRDatabaseReference *ref;
 
 - (IBAction)signInAction:(id)sender;
 - (IBAction)signUpAction:(id)sender;
+- (IBAction)homeAction:(id)sender;
 @end
 

@@ -58,8 +58,8 @@
     self.navigationController.navigationBarHidden=YES;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self passPastjobApi];
-//    titleLbl.text=[[NSUserDefaults standardUserDefaults] objectForKey:@"userName"];
-//    NSString *profileStr=[[NSUserDefaults standardUserDefaults] objectForKey:@"profilePic"];
+    titleLbl.text=[[NSUserDefaults standardUserDefaults] objectForKey:@"userName"];
+    NSString *profileStr=[[NSUserDefaults standardUserDefaults] objectForKey:@"profilePic"];
 }
 -(void)passPastjobApi
 {
@@ -299,6 +299,7 @@
         [self passStatusApi];
     }
     else
+        
     {
         UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Opps" message:@"One job already started if you want logout you have to complete this job in Ongoing Section" delegate:self cancelButtonTitle:@"Ok git it" otherButtonTitles:nil, nil];
         alert.tag=5000;

@@ -376,6 +376,8 @@
 //    {
 //    }];
 }
+
+
 -(void)passUpdateDeviceToken
 {
     NSString *useridStr=[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
@@ -427,5 +429,22 @@
 {
     SignupViewController *signup=[[SignupViewController alloc] init];
     [self.navigationController pushViewController:signup animated:YES];
+}
+
+- (IBAction)homeAction:(id)sender
+{
+//    NSString *userTypeStr=[[NSUserDefaults standardUserDefaults] objectForKey:@"userType"];
+//    if ([userTypeStr isEqualToString:@"1"])
+//    {
+        HomeViewController *home=[[HomeViewController alloc] init];
+        [self.navigationController pushViewController:home animated:YES];
+//    }
+//    else
+//    {
+//        ExpertHomeViewController *home=[[ExpertHomeViewController alloc] init];
+//        [self.navigationController pushViewController:home animated:YES];
+//    }
+    
+    
 }
 @end

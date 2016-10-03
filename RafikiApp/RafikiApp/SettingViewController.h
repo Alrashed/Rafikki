@@ -19,7 +19,7 @@
 {
     IBOutlet UIButton *sliderButton;
 }
-- (IBAction)becomeRaffikiAction:(id)sender;
+- (IBAction)becomeRafikkiAction:(id)sender;
 //@property (nonatomic, strong) BTPayPalDriver *payPalDriver;
 //@property (nonatomic, strong) BTAPIClient *braintreeClient;
 @end

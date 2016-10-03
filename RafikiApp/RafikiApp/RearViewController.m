@@ -78,7 +78,7 @@
     
     if (name ==(id)[NSNull null]||[name isEqualToString:@"(null) (null)"]||name==nil)
     {
-        userNameLbl.text=@"Raffiki User";
+        userNameLbl.text=@"Rafikki User";
         userTypeStr=@"1";
         modeButton.hidden=YES;
         modeView.hidden=YES;
@@ -308,7 +308,7 @@
             }
             else if (indexPath.row==2)
             {
-                if ([userNameLbl.text isEqualToString:@"Raffiki User"])
+                if ([userNameLbl.text isEqualToString:@"Rafikki User"])
                 {
                   UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"you need to sign in" message:@"you want to sign in?" delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
                     [alert show];
@@ -321,7 +321,7 @@
             }
             else if (indexPath.row==3)
             {
-                if ([userNameLbl.text isEqualToString:@"Raffiki User"])
+                if ([userNameLbl.text isEqualToString:@"Rafikki User"])
                 {
                     UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"you need to sign in" message:@"you want to sign in?" delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
                     [alert show];
@@ -335,7 +335,7 @@
             else if (indexPath.row==4)
             {
                 //User Payment
-                if ([userNameLbl.text isEqualToString:@"Raffiki User"])
+                if ([userNameLbl.text isEqualToString:@"Rafikki User"])
                 {
                     UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"you need to sign in" message:@"you want to sign in?" delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
                     [alert show];
@@ -348,7 +348,7 @@
             }
             else if (indexPath.row==5)
             {
-                if ([userNameLbl.text isEqualToString:@"Raffiki User"])
+                if ([userNameLbl.text isEqualToString:@"Rafikki User"])
                 {
                     UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"you need to sign in" message:@"you want to sign in ?" delegate:self cancelButtonTitle:@"Yes" otherButtonTitles:@"No", nil];
                     [alert show];
@@ -802,7 +802,7 @@
 {
     if ([userTypeStr isEqualToString:@"1"])
     {
-        if ([userNameLbl.text isEqualToString:@"Raffiki User"])
+        if ([userNameLbl.text isEqualToString:@"Rafikki User"])
         {
             ViewController *frontViewController = [[ViewController alloc] initWithNibName:@"Viewcontroller" bundle:nil];//frantview
             RearViewController *rearViewController = [[RearViewController alloc] init];//slider

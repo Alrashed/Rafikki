@@ -33,7 +33,7 @@
     [segment setBackgroundImage:[self imageWithColor:[UIColor colorWithWhite:0.5 alpha:0.2]] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     [segment setBackgroundImage:[self imageWithColor:[UIColor colorWithWhite:1.0 alpha:1.0]] forState:UIControlStateSelected  barMetrics:UIBarMetricsDefault];
     
-    clientFlag=@"Raffiki";
+    clientFlag=@"Rafikki";
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self passGetAllClientsApi];
 }
@@ -123,7 +123,7 @@
 #pragma mark Tableview delegate methods
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if ([clientFlag isEqualToString:@"Raffiki"])
+    if ([clientFlag isEqualToString:@"Rafikki"])
     {
         return [[clientArray valueForKey:@"data"] count];
     }
@@ -175,7 +175,7 @@
     phoneLbl.numberOfLines=2;
     [cell addSubview:phoneLbl];
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
-    if ([clientFlag isEqualToString:@"Raffiki"])
+    if ([clientFlag isEqualToString:@"Rafikki"])
     {
          [image setImageWithURL:[NSURL URLWithString:[[[clientArray valueForKey:@"data"]objectAtIndex:indexPath.row]valueForKey:@"user_image"]] placeholderImage:[UIImage imageNamed:@"photo"] usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
          titleLabel.text=[NSString stringWithFormat:@"%@ %@",[[[clientArray valueForKey:@"data"]objectAtIndex:indexPath.row]valueForKey:@"firstname"],[[[clientArray valueForKey:@"data"] objectAtIndex:indexPath.row] valueForKey:@"lastname"]];
@@ -197,7 +197,7 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([clientFlag isEqualToString:@"Raffiki"])
+    if ([clientFlag isEqualToString:@"Rafikki"])
     {
         UserProfileViewcontroller *pr=[[UserProfileViewcontroller alloc] init];
         pr.idStr=[[[clientArray valueForKey:@"data"] objectAtIndex:indexPath.row]valueForKey:@"user_id"];
@@ -255,7 +255,7 @@
     {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         addButton.hidden=YES;
-        clientFlag=@"Raffiki";
+        clientFlag=@"Rafikki";
         [self passGetAllClientsApi];
     }
     else

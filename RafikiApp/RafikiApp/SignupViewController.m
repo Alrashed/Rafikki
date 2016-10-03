@@ -216,32 +216,32 @@
                                  
 //                                 [self setDisplayName:user];
                                  // Email Subject
-                                 NSString *emailTitle = @"Rafikki verification code";
-                                 // Email Content
-                                 NSString *messageBody = @"Your verification code is 1234";
-                                 // To address
-                                 NSArray *toRecipents = [NSArray arrayWithObject:@"izaacgarcilazo@msn.com"];
-                                 
-                                 MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+//                                 NSString *emailTitle = @"Rafikki verification code";
+//                                 // Email Content
+//                                 NSString *messageBody = @"Your verification code is 1234";
+//                                 // To address
+//                                 NSArray *toRecipents = [NSArray arrayWithObject:@"izaacgarcilazo@msn.com"];
+//                                 
+//                                 MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
                                  //mc.mailComposeDelegate = self;
                                  
-                                 NSString *tocken=[[NSUserDefaults standardUserDefaults] objectForKey:@"Tocken"];
-                                 NSLog(@"token is : %@",tocken);
-                                 NSDictionary *dictParams;
-                                 if ([tocken isEqualToString:@""]||tocken ==(id)[NSNull null]||tocken==nil)
-                                 {
-                                     tocken=@"123123123123123123";
-                                     dictParams = @{@"email":TxtEmail.text,@"password":TxtPassword.text,@"username":TxtUsername.text,@"phone_no" :TxtPhoneNumber.text,@"user_type":typeUserStr,@"device_token":tocken,@"device_type":@"1"};
-                                 }
-                                 else
-                                 {
-                                     dictParams = @{@"email":TxtEmail.text,@"password":TxtPassword.text,@"username":TxtUsername.text,@"phone_no" :TxtPhoneNumber.text,@"user_type":@"1", @"device_token":tocken,@"device_type":@"1"};
-                                 }
-                                 
-                                 
-                                 [mc setSubject:emailTitle];
-                                 [mc setMessageBody:messageBody isHTML:NO];
-                                 [mc setToRecipients:toRecipents];
+//                                 NSString *tocken=[[NSUserDefaults standardUserDefaults] objectForKey:@"Tocken"];
+//                                 NSLog(@"token is : %@",tocken);
+//                                 NSDictionary *dictParams;
+//                                 if ([tocken isEqualToString:@""]||tocken ==(id)[NSNull null]||tocken==nil)
+//                                 {
+//                                     tocken=@"123123123123123123";
+//                                     dictParams = @{@"email":TxtEmail.text,@"password":TxtPassword.text,@"username":TxtUsername.text,@"phone_no" :TxtPhoneNumber.text,@"user_type":typeUserStr,@"device_token":tocken,@"device_type":@"1"};
+//                                 }
+//                                 else
+//                                 {
+//                                     dictParams = @{@"email":TxtEmail.text,@"password":TxtPassword.text,@"username":TxtUsername.text,@"phone_no" :TxtPhoneNumber.text,@"user_type":@"1", @"device_token":tocken,@"device_type":@"1"};
+//                                 }
+//                                 
+//                                 
+//                                 [mc setSubject:emailTitle];
+//                                 [mc setMessageBody:messageBody isHTML:NO];
+//                                 [mc setToRecipients:toRecipents];
 
                                  UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Rafikki App" message:nil delegate:self cancelButtonTitle:@"Next" otherButtonTitles:@"Save & Next", nil];
                                              [alert show];
