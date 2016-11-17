@@ -88,15 +88,17 @@
     else
     {
         NSString *profileStr=[[NSUserDefaults standardUserDefaults] valueForKey:@"profilePic"];
+        if (profileStr != nil){
         NSData *data3 = [[NSData alloc]initWithBase64EncodedString:profileStr options:NSDataBase64DecodingIgnoreUnknownCharacters];
         UIImage *ret = [UIImage imageWithData:data3];
+            [userImageview setImage:ret];
+        }
         userNameLbl.text= name;
         modeButton.hidden=NO;
         modeDropDownImg.hidden=NO;
         modeUserImageView.hidden=NO;
         modeView.hidden=YES;
-        [userImageview setImage:ret];
-
+        
         if ([userTypeStr isEqualToString:@"1"])
         {
             [modeButton setTitle:@"User" forState:UIControlStateNormal];
@@ -771,8 +773,8 @@
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"qualification"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"rate"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"skill"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"birthDate"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"aboutMe"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"birthdate"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"about_me"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"nickName"];
 }
 //- (void)viewWillAppear:(BOOL)animated

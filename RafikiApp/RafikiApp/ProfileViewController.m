@@ -237,14 +237,14 @@
                     [[NSUserDefaults standardUserDefaults] setObject:[[responseObject valueForKey:@"data"] valueForKey:@"cost"] forKey:@"cost"];*/
                     
                     
-                    [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"about_me"] forKey:@"aboutMe"];
+                    [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"about_me"] forKey:@"about_me"];
                     
                     [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"goverment_id"] forKey:@"photoId"];
                     
                     //
                     [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"social_security_number"] forKey:@"socialSecurityNumber"];
                     
-                    [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"birthdate"] forKey:@"birthDate"];
+                    [[NSUserDefaults standardUserDefaults] setObject:[[resposeDics valueForKey:@"data"] valueForKey:@"birthdate"] forKey:@"birthdate"];
                     
                     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"catIds"];
                     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"subcatIds"];
@@ -323,7 +323,11 @@
 }
 -(void)setValue
 {
-    titleLbl.text=[NSString stringWithFormat:@"%@ %@",[[expertAllArray valueForKey:@"user_profile"] valueForKey:@"firstname"],[[expertAllArray valueForKey:@"user_profile"] valueForKey:@"lastname"]];
+//    titleLbl.text=[NSString stringWithFormat:@"%@ %@",[[expertAllArray valueForKey:@"user_profile"] valueForKey:@"firstname"],[[expertAllArray valueForKey:@"user_profile"] valueForKey:@"lastname"]];
+    NSString *fname = [[NSUserDefaults standardUserDefaults] stringForKey:@"firstName"];
+    NSString *lname = [[NSUserDefaults standardUserDefaults] stringForKey:@"lastName"];
+    NSString *name=[NSString stringWithFormat:@"%@ %@",fname, lname];
+    titleLbl.text=name;
     designationLbl.text=[[expertAllArray valueForKey:@"user_profile"]  valueForKey:@"designation"];
     NSString *genderStr=[[expertAllArray valueForKey:@"user_profile"] valueForKey:@"gender"];
     NSString *loginStatusStr=[[expertAllArray valueForKey:@"user_profile"] valueForKey:@"login_status"];
@@ -351,7 +355,12 @@
     activeLbl.text=[NSString stringWithFormat:@"%@ | %@ ",loginStatusStr,genderStr];
     
 //    activeLbl.text=[NSString stringWithFormat:@"%@ | %@ | %@",loginStatusStr,genderStr,dateofBirth];
-    [userImageView setImageWithURL:[NSURL URLWithString:[[expertAllArray valueForKey:@"user_profile"] valueForKey:@"user_image"]] placeholderImage:[UIImage imageNamed:@"photo"] usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    //[userImageView setImageWithURL:[NSURL URLWithString:[[expertAllArray valueForKey:@"user_profile"] valueForKey:@"user_image"]] placeholderImage:[UIImage imageNamed:@"photo"] usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    NSString *profileStr=[[NSUserDefaults standardUserDefaults] valueForKey:@"profilePic"];
+    NSData *data3 = [[NSData alloc]initWithBase64EncodedString:profileStr options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    UIImage *ret = [UIImage imageWithData:data3];
+    [userImageView setImage:ret];
+
 }
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
@@ -836,8 +845,8 @@
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"qualification"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"rate"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"skill"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"birthDate"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"aboutMe"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"birthdate"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"about_me"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"nickName"];
     
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"is_filledValue"];

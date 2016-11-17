@@ -17,6 +17,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // [START create_database_reference]
+    self.ref = [[FIRDatabase database] reference];
+    // [END create_database_reference]
     dateView.hidden=YES;
 
     PassWordView.hidden=YES;
@@ -37,9 +40,9 @@
 }
 -(void)setValueWithTextfield
 {
-    firstNameTxt.text=[[NSUserDefaults standardUserDefaults] objectForKey:@"firstName"];
-    lastNameTxt.text=[[NSUserDefaults standardUserDefaults] objectForKey:@"lastName"];
-    NSString *nickNameStr=[[NSUserDefaults standardUserDefaults] objectForKey:@"nickName"];
+    firstNameTxt.text=[[NSUserDefaults standardUserDefaults] stringForKey:@"firstName"];
+    lastNameTxt.text=[[NSUserDefaults standardUserDefaults] stringForKey:@"lastName"];
+    NSString *nickNameStr=[[NSUserDefaults standardUserDefaults] stringForKey:@"nickName"];
     if ([nickNameStr isEqualToString:@""]||nickNameStr==nil)
     {
         nickNameTxt.text=@"";
@@ -48,7 +51,7 @@
     {
         nickNameTxt.text=nickNameStr;
     }
-    NSString *dateOfBirthStr=[[NSUserDefaults standardUserDefaults] objectForKey:@"birthDate"];
+    NSString *dateOfBirthStr=[[NSUserDefaults standardUserDefaults] stringForKey:@"birthdate"];
     if ([dateOfBirthStr isEqualToString:@""]||dateOfBirthStr==nil||dateOfBirthStr.length==0)
     {
         dateOfBirthTxt.text=@"";
@@ -60,7 +63,7 @@
 //    oldPasswordStr=[[NSUserDefaults standardUserDefaults] objectForKey:@"userPassword"];
     [passwordButton setTitle:@"Change Password" forState:UIControlStateNormal];
 //    passwordTxt.text=[[NSUserDefaults standardUserDefaults] objectForKey:@"userPassword"];
-    ganderStr=[[NSUserDefaults standardUserDefaults] objectForKey:@"gender"];
+    ganderStr=[[NSUserDefaults standardUserDefaults] stringForKey:@"gender"];
     if ([ganderStr isEqualToString:@"1"])
     {
         maleButton.selected=YES;
@@ -71,15 +74,18 @@
         maleButton.selected=NO;
         femaleButton.selected=YES;
     }
-    aboutTxtview.text=[[NSUserDefaults standardUserDefaults] objectForKey:@"aboutMe"];
-    NSString *profilePic=[[NSUserDefaults standardUserDefaults] objectForKey:@"profilePic"];
+    aboutTxtview.text=[[NSUserDefaults standardUserDefaults] stringForKey:@"about_me"];
+    NSString *profilePic=[[NSUserDefaults standardUserDefaults] valueForKey:@"profilePic"];
     if ([profilePic isEqualToString:@""]||profilePic==nil)
     {
         profilePicImageview.image=[UIImage imageNamed:@"photo"];
     }
     else
     {
-        [profilePicImageview setImageWithURL:[NSURL URLWithString:profilePic] placeholderImage:[UIImage imageNamed:@"photo"] usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        NSData *data3 = [[NSData alloc]initWithBase64EncodedString:profilePic options:NSDataBase64DecodingIgnoreUnknownCharacters];
+        UIImage *ret = [UIImage imageWithData:data3];
+        [profilePicImageview setImage:ret];
+
     }
     NSString *home=[[NSUserDefaults standardUserDefaults] objectForKey:@"home"];
     NSString *location=[[NSUserDefaults standardUserDefaults] objectForKey:@"location"];
@@ -186,7 +192,7 @@
 }
 - (IBAction)submitAction:(id)sender
 {
-    oldPasswordStr=[[NSUserDefaults standardUserDefaults] objectForKey:@"userPassword"];
+    oldPasswordStr=[[NSUserDefaults standardUserDefaults] valueForKey:@"userPassword"];
     if ([oldPasswordStr isEqualToString:oldPasswordTxt.text])
     {
         if (newPasswordTxt.text.length==0||confirmPasswordTxt.text.length==0)
@@ -290,111 +296,159 @@
 }
 -(void)passChangePasswordApi
 {
-    //http://cricyard.com/iphone/rafiki_app/service/change_password.php?userid=1&password=123
-    NSString *useridStr=[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
-    NSString *urlStr =[NSString stringWithFormat:@"http://cricyard.com/iphone/rafiki_app/service/change_password.php"];
-    NSDictionary *dictParams=@{@"userid":useridStr,@"password":confirmPasswordTxt.text};
-    NSString *encodedString = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager GET:encodedString parameters:dictParams success:^(AFHTTPRequestOperation *operation, id responseObject)
-     {
-         NSLog(@"Response: %@",responseObject);
-         [[NSUserDefaults standardUserDefaults]setObject:confirmPasswordTxt.text forKey:@"userPassword"];
-//         [passwordButton setTitle:confirmPasswordTxt.text forState:UIControlStateNormal];
-         PassWordView.hidden=YES;
-         oldPasswordTxt.text=@"";
-         newPasswordTxt.text=@"";
-         confirmPasswordTxt.text=@"";
-         
-     } failure:^(AFHTTPRequestOperation *operation, NSError *error)
-     {
-         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving"
-                                                             message:[error localizedDescription]
-                                                            delegate:nil
-                                                   cancelButtonTitle:@"Ok"
-                                                   otherButtonTitles:nil];
-         [alertView show];
-     }];
+    FIRUser *user = [FIRAuth auth].currentUser;
+    
+    [user updatePassword:confirmPasswordTxt.text completion:^(NSError *_Nullable error) {
+        if (error) {
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving"
+                                                                         message:[error localizedDescription]
+                                                                        delegate:nil
+                                                               cancelButtonTitle:@"Ok"
+                                                               otherButtonTitles:nil];
+                     [alertView show];
+        } else {
+            [[NSUserDefaults standardUserDefaults]setObject:confirmPasswordTxt.text forKey:@"userPassword"];
+            //         [passwordButton setTitle:confirmPasswordTxt.text forState:UIControlStateNormal];
+            PassWordView.hidden=YES;
+            oldPasswordTxt.text=@"";
+            newPasswordTxt.text=@"";
+            confirmPasswordTxt.text=@"";
+        }
+    }];
+//    //http://cricyard.com/iphone/rafiki_app/service/change_password.php?userid=1&password=123
+//    NSString *useridStr=[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
+//    NSString *urlStr =[NSString stringWithFormat:@"http://cricyard.com/iphone/rafiki_app/service/change_password.php"];
+//    NSDictionary *dictParams=@{@"userid":useridStr,@"password":confirmPasswordTxt.text};
+//    NSString *encodedString = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+//    [manager GET:encodedString parameters:dictParams success:^(AFHTTPRequestOperation *operation, id responseObject)
+//     {
+//         NSLog(@"Response: %@",responseObject);
+//         [[NSUserDefaults standardUserDefaults]setObject:confirmPasswordTxt.text forKey:@"userPassword"];
+////         [passwordButton setTitle:confirmPasswordTxt.text forState:UIControlStateNormal];
+//         PassWordView.hidden=YES;
+//         oldPasswordTxt.text=@"";
+//         newPasswordTxt.text=@"";
+//         confirmPasswordTxt.text=@"";
+//    
+//     } failure:^(AFHTTPRequestOperation *operation, NSError *error)
+//     {
+//         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+//         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving"
+//                                                             message:[error localizedDescription]
+//                                                            delegate:nil
+//                                                   cancelButtonTitle:@"Ok"
+//                                                   otherButtonTitles:nil];
+//         [alertView show];
+//     }];
+    
+    
+
 }
 -(void)passImageApi
 {
-    NSString *urlString=@"http://cricyard.com/iphone/rafiki_app/service/upload.php";
-    NSData *itemData=UIImageJPEGRepresentation(currentImage, 0.6);
-    NSString *String = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    FIRUser *user = [FIRAuth auth].currentUser;
     
-    NSMutableURLRequest *imageRequest = [[NSMutableURLRequest alloc] init];
-    [imageRequest setURL:[NSURL URLWithString:String]];
-    [imageRequest setHTTPMethod:@"POST"];
+
     
-    NSString *boundary = @"---------------------------14737809831466499882746641449";
-    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
-    [imageRequest addValue:contentType forHTTPHeaderField: @"Content-Type"];
-    
-    NSMutableData *body = [NSMutableData data];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyyMMdd_hhmmss"];
-    
-    NSString * fileName =[NSString stringWithFormat:@"%@",[formatter stringFromDate:[NSDate date]]];
-    
-    [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"userfile\"; filename=\"%@.jpg\"\r\n",fileName] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[NSData dataWithData:itemData]];
-    [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    [imageRequest setHTTPBody:body];
-    
-    NSData *returnData = [NSURLConnection sendSynchronousRequest:imageRequest returningResponse:nil error:nil];
-    imageStr = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
+//    NSString *urlString=@"http://cricyard.com/iphone/rafiki_app/service/upload.php";
+//    NSData *itemData=UIImageJPEGRepresentation(currentImage, 0.6);
+//    NSString *String = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    
+//    NSMutableURLRequest *imageRequest = [[NSMutableURLRequest alloc] init];
+//    [imageRequest setURL:[NSURL URLWithString:String]];
+//    [imageRequest setHTTPMethod:@"POST"];
+//    
+//    NSString *boundary = @"---------------------------14737809831466499882746641449";
+//    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
+//    [imageRequest addValue:contentType forHTTPHeaderField: @"Content-Type"];
+//    
+//    NSMutableData *body = [NSMutableData data];
+//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//    [formatter setDateFormat:@"yyyyMMdd_hhmmss"];
+//    
+//    NSString * fileName =[NSString stringWithFormat:@"%@",[formatter stringFromDate:[NSDate date]]];
+//    
+//    [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+//    
+//    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"userfile\"; filename=\"%@.jpg\"\r\n",fileName] dataUsingEncoding:NSUTF8StringEncoding]];
+//    [body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+//    [body appendData:[NSData dataWithData:itemData]];
+//    [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+//    
+//    [imageRequest setHTTPBody:body];
+//    
+//    NSData *returnData = [NSURLConnection sendSynchronousRequest:imageRequest returningResponse:nil error:nil];
+//    imageStr = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
     [self passEditApi];
 }
 -(void)passEditApi
 {
-    NSString *useridStr=[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
-    //  firstname=samir&lastname=makadia&gender=1&profilepic=google.com&userid=0&about_me=hi&dob=6-6-1988&nikename=sam&password=123
+    FIRUser *user = [FIRAuth auth].currentUser;
     
-    NSString *urlStr =[NSString stringWithFormat:@"http://cricyard.com/iphone/rafiki_app/service/edit_user_profile.php"];
-    NSDictionary *dictParams;
+    
+//    NSString *useridStr=[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
+//    //  firstname=samir&lastname=makadia&gender=1&profilepic=google.com&userid=0&about_me=hi&dob=6-6-1988&nikename=sam&password=123
+//    
+//    NSString *urlStr =[NSString stringWithFormat:@"http://cricyard.com/iphone/rafiki_app/service/edit_user_profile.php"];
+//    NSDictionary *dictParams;
     if (currentImage ==nil)
     {
-        imageStr=[[NSUserDefaults standardUserDefaults] objectForKey:@"profilePic"];
-         dictParams= @{@"firstname":firstNameTxt.text,@"lastname":lastNameTxt.text,@"gender":ganderStr,@"userid":useridStr,@"profilepic":imageStr,@"about_me":aboutTxtview.text,@"dob":dateOfBirthTxt.text,@"nikename":@"",@"home":@"",@"location":@"",@"session_time":@"",@"ages":@"",@"must_have":@"",@"cost":@"",@"qulification":@"",@"designation":@"",@"experience":@"",@"hour_rate":@""};
+        imageStr=[[NSUserDefaults standardUserDefaults] valueForKey:@"profilePic"];
+//         dictParams= @{@"firstname":firstNameTxt.text,@"lastname":lastNameTxt.text,@"gender":ganderStr,@"userid":useridStr,@"profilepic":imageStr,@"about_me":aboutTxtview.text,@"dob":dateOfBirthTxt.text,@"nikename":@"",@"home":@"",@"location":@"",@"session_time":@"",@"ages":@"",@"must_have":@"",@"cost":@"",@"qulification":@"",@"designation":@"",@"experience":@"",@"hour_rate":@""};
+        [[[[_ref child:@"users"] child:user.uid] child:@"firstname"] setValue:firstNameTxt.text];
+        [[[[_ref child:@"users"] child:user.uid] child:@"lastname"] setValue:lastNameTxt.text];
+        [[[[_ref child:@"users"] child:user.uid] child:@"gender"] setValue:ganderStr];
+        [[[[_ref child:@"users"] child:user.uid] child:@"about_me"] setValue:aboutTxtview.text];
+        [[[[_ref child:@"users"] child:user.uid] child:@"nickname"] setValue:nickNameTxt.text];
+        [[[[_ref child:@"users"] child:user.uid] child:@"birthdate"] setValue:dateOfBirthTxt.text];
+        
     }
     else
     {
         
-        dictParams= @{@"firstname":firstNameTxt.text,@"lastname":lastNameTxt.text,@"gender":ganderStr,@"profilepic":imageStr,@"userid":useridStr,@"about_me":aboutTxtview.text,@"dob":dateOfBirthTxt.text,@"nikename":@"",@"home":@"",@"location":@"",@"session_time":@"",@"ages":@"",@"must_have":@"",@"cost":@"",@"qulification":@"",@"designation":@"",@"experience":@"",@"hour_rate":@""};
+//        dictParams= @{@"firstname":firstNameTxt.text,@"lastname":lastNameTxt.text,@"gender":ganderStr,@"profilepic":imageStr,@"userid":useridStr,@"about_me":aboutTxtview.text,@"dob":dateOfBirthTxt.text,@"nikename":@"",@"home":@"",@"location":@"",@"session_time":@"",@"ages":@"",@"must_have":@"",@"cost":@"",@"qulification":@"",@"designation":@"",@"experience":@"",@"hour_rate":@""};
+        [[[[_ref child:@"users"] child:user.uid] child:@"firstname"] setValue:firstNameTxt.text];
+        [[[[_ref child:@"users"] child:user.uid] child:@"lastname"] setValue:lastNameTxt.text];
+        [[[[_ref child:@"users"] child:user.uid] child:@"gender"] setValue:ganderStr];
+        [[[[_ref child:@"users"] child:user.uid] child:@"about_me"] setValue:aboutTxtview.text];
+        [[[[_ref child:@"users"] child:user.uid] child:@"nickname"] setValue:nickNameTxt.text];
+        [[[[_ref child:@"users"] child:user.uid] child:@"birthdate"] setValue:dateOfBirthTxt.text];
+        imageStr = [UIImagePNGRepresentation(currentImage) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+        NSLog(@"%@Thisis working", imageStr);
+        [[[[_ref child:@"users"] child:user.uid] child:@"profilePic"] setValue:imageStr];
     }
-    NSString *encodedString = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager GET:encodedString parameters:dictParams success:^(AFHTTPRequestOperation *operation, id responseObject)
-     {
-         NSLog(@"Response: %@",responseObject);
-         
+//    NSString *encodedString = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+//    [manager GET:encodedString parameters:dictParams success:^(AFHTTPRequestOperation *operation, id responseObject)
+//     {
+//         NSLog(@"Response: %@",responseObject);
+    
          /*firstName
           lastName
           nickName
-          birthDate
+          birthdate
           userPassword
           gender
-          aboutMe
+          about_me
           profilePic*/
          
          [[NSUserDefaults standardUserDefaults] setObject:homeTxt.text forKey:@"home"];
          [[NSUserDefaults standardUserDefaults] setObject:locationTxt.text forKey:@"location"];
+         [[NSUserDefaults standardUserDefaults] setObject:confirmPasswordTxt.text forKey:@"userPassword"];
 
          
          [[NSUserDefaults standardUserDefaults] setObject:firstNameTxt.text forKey:@"firstName"];
          [[NSUserDefaults standardUserDefaults] setObject:lastNameTxt.text forKey:@"lastName"];
          [[NSUserDefaults standardUserDefaults] setObject:nickNameTxt.text forKey:@"nickName"];
-         [[NSUserDefaults standardUserDefaults] setObject:dateOfBirthTxt.text forKey:@"birthDate"];
+         [[NSUserDefaults standardUserDefaults] setObject:dateOfBirthTxt.text forKey:@"birthdate"];
 //         [[NSUserDefaults standardUserDefaults] setObject:passwordButton.titleLabel.text forKey:@"userPassword"];
          [[NSUserDefaults standardUserDefaults] setObject:ganderStr forKey:@"gender"];
-         [[NSUserDefaults standardUserDefaults] setObject:aboutTxtview.text forKey:@"aboutMe"];
+         [[NSUserDefaults standardUserDefaults] setObject:aboutTxtview.text forKey:@"about_me"];
+    
          [[NSUserDefaults standardUserDefaults] setObject:imageStr forKey:@"profilePic"];
          
          UIAlertController * alert=   [UIAlertController
@@ -414,15 +468,15 @@
                                      }];
          [alert addAction:yesButton];
          [self presentViewController:alert animated:YES completion:nil];
-     } failure:^(AFHTTPRequestOperation *operation, NSError *error)
-     {
-         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving"
-                                                             message:[error localizedDescription]
-                                                            delegate:nil
-                                                   cancelButtonTitle:@"Ok"
-                                                   otherButtonTitles:nil];
-         [alertView show];
-     }];
+//     } failure:^(AFHTTPRequestOperation *operation, NSError *error)
+//     {
+//         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+//         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving"
+//                                                             message:[error localizedDescription]
+//                                                            delegate:nil
+//                                                   cancelButtonTitle:@"Ok"
+//                                                   otherButtonTitles:nil];
+//         [alertView show];
+//     }];
 }
 @end

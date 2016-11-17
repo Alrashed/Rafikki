@@ -31,14 +31,14 @@
     if ([chakEditFlag isEqualToString:@"Yes"])
     {
         fullNameTxt.text=[NSString stringWithFormat:@"%@ %@",[[NSUserDefaults standardUserDefaults] objectForKey:@"firstName"],[[NSUserDefaults standardUserDefaults] objectForKey:@"lastName"]];
-        ageTxt.text=[[NSUserDefaults standardUserDefaults] objectForKey:@"birthDate"];
+        ageTxt.text=[[NSUserDefaults standardUserDefaults] objectForKey:@"birthdate"];
         SocialSecurityTxt.text=[[NSUserDefaults standardUserDefaults] objectForKey:@"socialSecurityNumber"];
         [nectButton setTitle:@"Edit" forState:UIControlStateNormal];
     }
     else
     {
         fullNameTxt.text=[NSString stringWithFormat:@"%@ %@",[[NSUserDefaults standardUserDefaults] objectForKey:@"firstName"],[[NSUserDefaults standardUserDefaults] objectForKey:@"lastName"]];
-        ageTxt.text=[[NSUserDefaults standardUserDefaults] objectForKey:@"birthDate"];
+        ageTxt.text=[[NSUserDefaults standardUserDefaults] objectForKey:@"birthdate"];
     }
     self.navigationController.navigationBarHidden=YES;
 

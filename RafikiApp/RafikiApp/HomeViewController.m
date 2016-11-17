@@ -137,27 +137,27 @@
 -(void)passSuggestionApi
 {
 //        NSString *useridStr=[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
-        NSString *urlStr =[NSString stringWithFormat:@"http://cricyard.com/iphone/rafiki_app/service/get_suggestions.php"];
-        NSString *encodedString = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        manager.requestSerializer = [AFJSONRequestSerializer serializer];
-        [manager GET:encodedString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            
-            NSLog(@"Response: %@",responseObject);
-            suggestionArray  =(NSMutableArray *)[responseObject valueForKey:@"data"];
-            NSLog(@"suggestionArray is :%@",suggestionArray);
-            [suggestionCollection reloadData];
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
-            
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error)
-         {
-             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving"
-                                                                 message:[error localizedDescription]
-                                                                delegate:nil
-                                                       cancelButtonTitle:@"Ok"
-                                                       otherButtonTitles:nil];
-             [alertView show];
-         }];
+//        NSString *urlStr =[NSString stringWithFormat:@"http://cricyard.com/iphone/rafiki_app/service/get_suggestions.php"];
+//        NSString *encodedString = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//        manager.requestSerializer = [AFJSONRequestSerializer serializer];
+//        [manager GET:encodedString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//            
+//            NSLog(@"Response: %@",responseObject);
+//            suggestionArray  =(NSMutableArray *)[responseObject valueForKey:@"data"];
+//            NSLog(@"suggestionArray is :%@",suggestionArray);
+//            [suggestionCollection reloadData];
+//            [MBProgressHUD hideHUDForView:self.view animated:YES];
+//            
+//        } failure:^(AFHTTPRequestOperation *operation, NSError *error)
+//         {
+//             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving"
+//                                                                 message:[error localizedDescription]
+//                                                                delegate:nil
+//                                                       cancelButtonTitle:@"Ok"
+//                                                       otherButtonTitles:nil];
+//             [alertView show];
+//         }];
 }
 //- (void)scrollViewDidScroll:(UIScrollView *)scrollView
 //{

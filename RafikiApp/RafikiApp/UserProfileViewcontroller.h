@@ -38,6 +38,7 @@
     IBOutlet UIImageView *img4;
     IBOutlet UIImageView *img5;
     IBOutlet UIButton *logoutButton;
+    IBOutlet UILabel *logoutLbl;
 }
 - (IBAction)logOutAction:(id)sender;
 - (IBAction)editAction:(id)sender;

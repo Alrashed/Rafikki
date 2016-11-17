@@ -9,8 +9,6 @@
 #import "SignupViewController.h"
 #import "AFNetworking/AFNetworking.h"
 
-@import Firebase;
-
 @interface SignupViewController ()
 
 @end
@@ -208,7 +206,7 @@
                                  
                                  [[[_ref child:@"users"] child:user.uid]
                                   setValue:@{
-                                             @"userType": typeUserStr,
+                                             @"userType": @"1",
                                              @"username": TxtUsername.text,
                                              @"email": email,
                                              @"phone": TxtPhoneNumber.text,                                                                                          

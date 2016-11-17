@@ -17,6 +17,8 @@
 #import "AppDelegate.h"
 #import "SWRevealViewController.h"
 #import "RearViewController.h"
+@import Firebase;
+
 @interface MapViewController : UIViewController<CLLocationManagerDelegate,SWRevealViewControllerDelegate>
 {
     
@@ -66,6 +68,7 @@
     NSMutableArray *catSelectArray;
     
 }
+@property(strong, nonatomic) FIRDatabaseReference *ref;
 - (IBAction)okAction:(id)sender;
 @property(nonatomic,retain)NSString *buttonHideshowFlag;
 - (IBAction)profileAction:(id)sender;

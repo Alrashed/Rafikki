@@ -12,6 +12,7 @@
 
 #import "AFNetworking/AFNetworking.h"
 #import "MBProgressHUD.h"
+@import Firebase;
 
 @interface EditViewController : UIViewController<UIActionSheetDelegate>
 {
@@ -37,16 +38,16 @@
     NSString *imageStr;
     IBOutlet UIView *aboutView;
     IBOutlet UIButton *passwordButton;
-    
     IBOutlet UIView *PassWordView;
     IBOutlet UITextField *oldPasswordTxt;
     IBOutlet UITextField *newPasswordTxt;
     IBOutlet UITextField *confirmPasswordTxt;
     IBOutlet UIButton *submitButton;
-    
     NSString *oldPasswordStr;
     
 }
+@property(strong, nonatomic) FIRDatabaseReference *ref;
+
 - (IBAction)passwordAction:(id)sender;
 - (IBAction)submitAction:(id)sender;
 - (IBAction)datepickerAction:(id)sender;

@@ -35,6 +35,12 @@
     roundLbl4.clipsToBounds=YES;
     // Do any additional setup after loading the view from its nib.
 }
+
+- (IBAction)backAction:(id)sender {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -50,4 +56,5 @@
     check_DiclosesVC *chack=[[check_DiclosesVC alloc] initWithNibName:@"check&DiclosesVC" bundle:nil];
     [self.navigationController pushViewController:chack animated:YES];
 }
+
 @end

@@ -10,6 +10,7 @@
 #import "MBProgressHUD.h"
 #import "AFNetworking/AFNetworking.h"
 #import "VeryficationVC.h"
+@import Firebase;
 @interface ExpertSignupVC : UIViewController
 {
     IBOutlet UITextField *TxtUsername;
@@ -20,6 +21,7 @@
     IBOutlet UIScrollView *signupScrollview;
     NSString *typeUserStr;
 }
+@property(strong, nonatomic) FIRDatabaseReference *ref;
 - (IBAction)signUpAction:(id)sender;
 - (IBAction)backAction:(id)sender;
 @end

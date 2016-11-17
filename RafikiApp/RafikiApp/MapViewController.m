@@ -20,6 +20,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // [START create_database_reference]
+    self.ref = [[FIRDatabase database] reference];
+    // [END create_database_reference]
+
     filterView.hidden=YES;
     catView.hidden=YES;
     
@@ -143,39 +147,45 @@
 }
 -(void)passUpdateLocationApiWithLat:(NSString *)lat Withlong:(NSString *)longi
 {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    NSString *useridStr=[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    FIRUser *user = [FIRAuth auth].currentUser;
+    //NSString *useridStr=[[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
     //make request to the server
 //    NSString *urlStr =[NSString stringWithFormat:@"http://cricyard.com/iphone/rafiki_app/service/update_user_location.php?userid=%@&latitude=%f&longitude=%f",useridStr,lat,longi];
     
     
-    NSString *urlStr =[NSString stringWithFormat:@"http://cricyard.com/iphone/rafiki_app/service/update_user_location.php"];
-    NSDictionary *dictParams = @{@"latitude":lat,
-                                 @"longitude":longi,
-                                 @"userid":useridStr
-                                 };
-    NSString *encodedString = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager GET:encodedString parameters:dictParams success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Response: %@",responseObject);
-        NSDictionary *cat=(NSDictionary *)responseObject;
-        if ([[cat valueForKey:@"msg"]isEqualToString:@"update success"])
-        {
-            [self PassgetExpertWithLat:lat AndLongi:longi];
-        }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error)
-     {
-         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving"
-                                                             message:[error localizedDescription]
-                                                            delegate:nil
-                                                   cancelButtonTitle:@"Ok"
-                                                   otherButtonTitles:nil];
-         [alertView show];
-         [MBProgressHUD hideHUDForView:self.view animated:YES];
-     }];
+//    NSString *urlStr =[NSString stringWithFormat:@"http://cricyard.com/iphone/rafiki_app/service/update_user_location.php"];
+//    NSDictionary *dictParams = @{@"latitude":lat,
+//                                 @"longitude":longi,
+//                                 @"userid":useridStr
+//                                 };
+//    NSString *encodedString = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+//    [manager GET:encodedString parameters:dictParams success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSLog(@"Response: %@",responseObject);
+//        NSDictionary *cat=(NSDictionary *)responseObject;
+//        if ([[cat valueForKey:@"msg"]isEqualToString:@"update success"])
+//        {
+//            [self PassgetExpertWithLat:lat AndLongi:longi];
+//        }
+//        
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error)
+//     {
+//         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving"
+//                                                             message:[error localizedDescription]
+//                                                            delegate:nil
+//                                                   cancelButtonTitle:@"Ok"
+//                                                   otherButtonTitles:nil];
+//         [alertView show];
+//         [MBProgressHUD hideHUDForView:self.view animated:YES];
+//     }];
+    
+    [[[[_ref child:@"users"] child:user.uid] child:@"latitude"] setValue:lat];
+    [[[[_ref child:@"users"] child:user.uid] child:@"longitude"] setValue:longi];
+    [self PassgetExpertWithLat:lat AndLongi:longi];
+    
 }
 -(void)PassgetExpertWithLat:(NSString *)lat AndLongi:(NSString *)longi
 {

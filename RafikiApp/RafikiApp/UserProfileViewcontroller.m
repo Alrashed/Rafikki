@@ -59,35 +59,41 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self passPastjobApi];
     titleLbl.text=[[NSUserDefaults standardUserDefaults] objectForKey:@"userName"];
-    NSString *profileStr=[[NSUserDefaults standardUserDefaults] objectForKey:@"profilePic"];
+    
 }
 -(void)passPastjobApi
 {
     
-    NSString *urlStr =[NSString stringWithFormat:@"http://cricyard.com/iphone/rafiki_app/service/get_user_profile.php"];
-    NSDictionary *dictParams = @{@"userid":idStr,@"user_type":userFlag};
-    NSString *encodedString = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager GET:encodedString parameters:dictParams success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSLog(@"Response: %@",responseObject);
-        
-        pastReqArray  =(NSMutableArray *) responseObject;
-        //        hireReqarray=[hireReqarray valueForKey:@"data"];
-        NSLog(@"past job dics :%@",pastReqArray);
-        titleLbl.text=[NSString stringWithFormat:@"%@ %@",[[pastReqArray valueForKey:@"user_profile"] valueForKey:@"firstname"],[[pastReqArray valueForKey:@"user_profile"] valueForKey:@"lastname"]];
-        NSString *profileStr=[[pastReqArray valueForKey:@"user_profile"] valueForKey:@"user_image"];
-        NSString *birthdate=[[pastReqArray valueForKey:@"user_profile"] valueForKey:@"birthdate"];
+//    NSString *urlStr =[NSString stringWithFormat:@"http://cricyard.com/iphone/rafiki_app/service/get_user_profile.php"];
+//    NSDictionary *dictParams = @{@"userid":idStr,@"user_type":userFlag};
+//    NSString *encodedString = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+//    [manager GET:encodedString parameters:dictParams success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        
+//        NSLog(@"Response: %@",responseObject);
+//        
+//        pastReqArray  =(NSMutableArray *) responseObject;
+//        //        hireReqarray=[hireReqarray valueForKey:@"data"];
+//        NSLog(@"past job dics :%@",pastReqArray);
+//        titleLbl.text=[NSString stringWithFormat:@"%@ %@",[[pastReqArray valueForKey:@"user_profile"] valueForKey:@"firstname"],[[pastReqArray valueForKey:@"user_profile"] valueForKey:@"lastname"]];
+//        NSString *profileStr=[[pastReqArray valueForKey:@"user_profile"] valueForKey:@"user_image"];
+//        NSString *birthdate=[[pastReqArray valueForKey:@"user_profile"] valueForKey:@"birthdate"];
+        NSString *birthdate = [[NSUserDefaults standardUserDefaults] stringForKey:@"birthdate"];
+        NSString *aboutStr = [[NSUserDefaults standardUserDefaults] stringForKey:@"about_me"];
+        //NSString *profileStr=[[NSUserDefaults standardUserDefaults] objectForKey:@"profilePic"];
+        NSString *profileStr=[[NSUserDefaults standardUserDefaults] valueForKey:@"profilePic"];
+        NSData *data3 = [[NSData alloc]initWithBase64EncodedString:profileStr options:NSDataBase64DecodingIgnoreUnknownCharacters];
+        UIImage *ret = [UIImage imageWithData:data3];
+    
         if ([birthdate isEqualToString:@""]||birthdate==nil)
         {
             cityLbl.text=@"Birth Date not added!!";
         }
         else
         {
-            cityLbl.text=[[pastReqArray valueForKey:@"user_profile"] valueForKey:@"birthdate"];
+            cityLbl.text = birthdate;
         }
-        NSString *aboutStr=[[pastReqArray valueForKey:@"user_profile"] valueForKey:@"about_me"];
         if ([aboutStr isEqualToString:@""]||aboutStr==nil)
         {
             aboutMeLbl.text=@"About me not Added!";
@@ -140,19 +146,35 @@
         {
             
         }
-        [userimageview setImageWithURL:[NSURL URLWithString:profileStr] placeholderImage:[UIImage imageNamed:@"photo"] usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    
+//    NSString *profileStr=[[NSUserDefaults standardUserDefaults] valueForKey:@"profilePic"];
+//    NSData *data3 = [[NSData alloc]initWithBase64EncodedString:profileStr options:NSDataBase64DecodingIgnoreUnknownCharacters];
+//    UIImage *ret = [UIImage imageWithData:data3];
+//    userNameLbl.text= name;
+//    modeButton.hidden=NO;
+//    modeDropDownImg.hidden=NO;
+//    modeUserImageView.hidden=NO;
+//    modeView.hidden=YES;
+//    [userImageview setImage:ret];
+//
+    
+    
+    
+    
+//        [userimageview setImageWithURL:[NSURL URLWithString:profileStr] placeholderImage:[UIImage imageNamed:@"photo"] usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [userimageview setImage:ret];
         [profileTbl reloadData];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error)
-     {
-         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving"
-                                                             message:[error localizedDescription]
-                                                            delegate:nil
-                                                   cancelButtonTitle:@"Ok"
-                                                   otherButtonTitles:nil];
-         [alertView show];
-     }];
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error)
+//     {
+//         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving"
+//                                                             message:[error localizedDescription]
+//                                                            delegate:nil
+//                                                   cancelButtonTitle:@"Ok"
+//                                                   otherButtonTitles:nil];
+//         [alertView show];
+//     }];
     
    /* NSString *urlStr =[NSString stringWithFormat:@"http://cricyard.com/iphone/rafiki_app/service/get_user_profile.php?userid=%@&user_type=%@",idStr,userFlag];
     __weak ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:urlStr]];
@@ -355,8 +377,8 @@
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"qualification"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"rate"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"skill"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"birthDate"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"aboutMe"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"birthdate"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"about_me"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"nickName"];
     
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"is_filledValue"];

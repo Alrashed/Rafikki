@@ -19,4 +19,5 @@
     IBOutlet UILabel *roundLbl4;
 }
 - (IBAction)startAction:(id)sender;
+- (IBAction)backAction:(id)sender;
 @end

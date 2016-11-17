@@ -154,7 +154,6 @@
     
     NSString *profPic = [UIImagePNGRepresentation(currentImage) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
     NSLog(@"%@Thisis working", profPic);
-//    [[[[_ref child:@"users"] child:user.uid] child:@"profilePic"] setValue:[UIImagePNGRepresentation(currentImage) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength]];
     [[[[_ref child:@"users"] child:user.uid] child:@"profilePic"] setValue:profPic];
 
     
@@ -195,7 +194,7 @@
 //    [[NSUserDefaults standardUserDefaults] setObject:ganderStr forKey:@"gender"];
 //    [[NSUserDefaults standardUserDefaults] setObject:imageReturnString forKey:@"profilePic"];
 //    [[NSUserDefaults standardUserDefaults] setObject:dateOfbirthButton.currentTitle forKey:@"BirthDate"];
-//    [[NSUserDefaults standardUserDefaults] setObject:aboutMeTxt.text forKey:@"aboutMe"];
+//    [[NSUserDefaults standardUserDefaults] setObject:aboutMeTxt.text forKey:@"about_me"];
 //    [[NSUserDefaults standardUserDefaults] setObject:nickNameTxt.text forKey:@"nickName"];
 //    NSLog(@"isFiled is:%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"is_filledValue"]);
 //    [[NSUserDefaults standardUserDefaults] setObject:@"No" forKey:@"payment_method_add"];
@@ -295,7 +294,7 @@
 //                [[NSUserDefaults standardUserDefaults] setObject:ganderStr forKey:@"gender"];
 //                [[NSUserDefaults standardUserDefaults] setObject:imageReturnString forKey:@"profilePic"];
 //                [[NSUserDefaults standardUserDefaults] setObject:dateOfbirthButton.currentTitle forKey:@"BirthDate"];
-//                [[NSUserDefaults standardUserDefaults] setObject:aboutMeTxt.text forKey:@"aboutMe"];
+//                [[NSUserDefaults standardUserDefaults] setObject:aboutMeTxt.text forKey:@"about_me"];
 //                [[NSUserDefaults standardUserDefaults] setObject:nickNameTxt.text forKey:@"nickName"];
 //                NSLog(@"isFiled is:%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"is_filledValue"]);
 //                [[NSUserDefaults standardUserDefaults] setObject:@"No" forKey:@"payment_method_add"];

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1E4EEEF1C187C71408D2A770 /* Pods_RafikiApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF0F9C77CE884D98293A40CC /* Pods_RafikiApp.framework */; };
 		27210362492F6FD7FDDADFB9 /* Pods_RafikiAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC9309529472EDA4E2FEF2E8 /* Pods_RafikiAppUITests.framework */; };
+		2DC0F5C71DC56C5A0021A875 /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC0F5C61DC56C5A0021A875 /* EditViewController.xib */; };
+		2DC0F5CD1DC574090021A875 /* ExpertEditVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC0F5CC1DC574090021A875 /* ExpertEditVC.xib */; };
 		2DFA8E4E1D89FC1800DB3458 /* Viewcontroller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DFA8E4D1D89FC1800DB3458 /* Viewcontroller.xib */; };
 		65067A551D828848002C0463 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65067A541D828848002C0463 /* GoogleService-Info.plist */; };
 		B3D60949F062289984654E3C /* Pods_RafikiAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D720C7333FAF57164E2E3217 /* Pods_RafikiAppTests.framework */; };
@@ -16,7 +18,6 @@
 		D307306B1C9C24FD00AF41CE /* SelectAndAddPaymentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D30730691C9C24FD00AF41CE /* SelectAndAddPaymentVC.xib */; };
 		D32832151C73564900B0E17F /* rightchatBg.png in Resources */ = {isa = PBXBuildFile; fileRef = D32832141C73564900B0E17F /* rightchatBg.png */; };
 		D3292ABB1C76FA6F00796720 /* ExpertEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D3292AB91C76FA6F00796720 /* ExpertEditVC.m */; };
-		D3292ABC1C76FA6F00796720 /* ExpertEditVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3292ABA1C76FA6F00796720 /* ExpertEditVC.xib */; };
 		D344FB7A1C414C8700A97877 /* DLStarRatingControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D344FB771C414C8700A97877 /* DLStarRatingControl.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D344FB7B1C414C8700A97877 /* DLStarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D344FB791C414C8700A97877 /* DLStarView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D344FB881C414CD400A97877 /* UIView+Subviews.m in Sources */ = {isa = PBXBuildFile; fileRef = D344FB821C414CD400A97877 /* UIView+Subviews.m */; };
@@ -168,7 +169,6 @@
 		D3E4F9001C2D56B300144942 /* RearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E4F8FE1C2D56B300144942 /* RearViewController.m */; };
 		D3E4F9011C2D56B300144942 /* RearViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3E4F8FF1C2D56B300144942 /* RearViewController.xib */; };
 		D3E50F0F1C5BACAE00E95BC2 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E50F0D1C5BACAE00E95BC2 /* EditViewController.m */; };
-		D3E50F101C5BACAE00E95BC2 /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3E50F0E1C5BACAE00E95BC2 /* EditViewController.xib */; };
 		D3E512291C36BBF200DD540E /* SocialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E512271C36BBF200DD540E /* SocialViewController.m */; };
 		D3E5122A1C36BBF200DD540E /* SocialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3E512281C36BBF200DD540E /* SocialViewController.xib */; };
 		D3E584161C5A38350044AAEE /* SuggestionCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E584141C5A38340044AAEE /* SuggestionCollectionCell.m */; };
@@ -285,6 +285,8 @@
 
 /* Begin PBXFileReference section */
 		1BAA14ED16039D28CD394091 /* Pods-RafikiAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RafikiAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RafikiAppUITests/Pods-RafikiAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2DC0F5C61DC56C5A0021A875 /* EditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditViewController.xib; sourceTree = "<group>"; };
+		2DC0F5CC1DC574090021A875 /* ExpertEditVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpertEditVC.xib; sourceTree = "<group>"; };
 		2DFA8E4D1D89FC1800DB3458 /* Viewcontroller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Viewcontroller.xib; sourceTree = "<group>"; };
 		65067A541D828848002C0463 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A2444E973C9CFEED7A584F4B /* Pods-RafikiAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RafikiAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RafikiAppTests/Pods-RafikiAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -295,7 +297,6 @@
 		D32832141C73564900B0E17F /* rightchatBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightchatBg.png; sourceTree = "<group>"; };
 		D3292AB81C76FA6F00796720 /* ExpertEditVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpertEditVC.h; sourceTree = "<group>"; };
 		D3292AB91C76FA6F00796720 /* ExpertEditVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpertEditVC.m; sourceTree = "<group>"; };
-		D3292ABA1C76FA6F00796720 /* ExpertEditVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpertEditVC.xib; sourceTree = "<group>"; };
 		D344FB761C414C8700A97877 /* DLStarRatingControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLStarRatingControl.h; sourceTree = "<group>"; };
 		D344FB771C414C8700A97877 /* DLStarRatingControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLStarRatingControl.m; sourceTree = "<group>"; };
 		D344FB781C414C8700A97877 /* DLStarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLStarView.h; sourceTree = "<group>"; };
@@ -534,7 +535,6 @@
 		D3E4F8FF1C2D56B300144942 /* RearViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RearViewController.xib; sourceTree = "<group>"; };
 		D3E50F0C1C5BACAE00E95BC2 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
 		D3E50F0D1C5BACAE00E95BC2 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
-		D3E50F0E1C5BACAE00E95BC2 /* EditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditViewController.xib; sourceTree = "<group>"; };
 		D3E512261C36BBF200DD540E /* SocialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialViewController.h; sourceTree = "<group>"; };
 		D3E512271C36BBF200DD540E /* SocialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialViewController.m; sourceTree = "<group>"; };
 		D3E512281C36BBF200DD540E /* SocialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SocialViewController.xib; sourceTree = "<group>"; };
@@ -875,7 +875,7 @@
 				D3DDD72E1C6B4EB700033F7F /* TrasactionViewController.xib */,
 				D3292AB81C76FA6F00796720 /* ExpertEditVC.h */,
 				D3292AB91C76FA6F00796720 /* ExpertEditVC.m */,
-				D3292ABA1C76FA6F00796720 /* ExpertEditVC.xib */,
+				2DC0F5CC1DC574090021A875 /* ExpertEditVC.xib */,
 				D3DEDBEF1C89610E00FD4EE3 /* PaymentDepositMethods.h */,
 				D3DEDBF01C89610E00FD4EE3 /* PaymentDepositMethods.m */,
 				D3DEDBF11C89610E00FD4EE3 /* PaymentDepositMethods.xib */,
@@ -984,7 +984,7 @@
 				D3DD203D1C539D47007F96F4 /* ChatViewController.xib */,
 				D3E50F0C1C5BACAE00E95BC2 /* EditViewController.h */,
 				D3E50F0D1C5BACAE00E95BC2 /* EditViewController.m */,
-				D3E50F0E1C5BACAE00E95BC2 /* EditViewController.xib */,
+				2DC0F5C61DC56C5A0021A875 /* EditViewController.xib */,
 				D3E88E891C71C715001B94BA /* HelpViewController.h */,
 				D3E88E8A1C71C715001B94BA /* HelpViewController.m */,
 				D3E88E8B1C71C715001B94BA /* HelpViewController.xib */,
@@ -1545,7 +1545,6 @@
 				D3DD84E91C69A7C2008521AB /* pin.png in Resources */,
 				D3DFCA111C3814980089FD98 /* CategoryViewController.xib in Resources */,
 				D3DDD78C1C450585005461F3 /* CommonShowJobView.xib in Resources */,
-				D3292ABC1C76FA6F00796720 /* ExpertEditVC.xib in Resources */,
 				D3E73C341C2C015B0069B97F /* Roboto-Regular.ttf in Resources */,
 				D3E95E621CE4BCED00DF2EE8 /* SkillDisplayView.xib in Resources */,
 				D3E8709D1C6F495300198AF0 /* Icon.png in Resources */,
@@ -1558,11 +1557,13 @@
 				D3DFCA0C1C37E35C0089FD98 /* SettingViewController.xib in Resources */,
 				D32832151C73564900B0E17F /* rightchatBg.png in Resources */,
 				D3DDC1D01CA148ED007B16AF /* my7.png in Resources */,
+				2DC0F5CD1DC574090021A875 /* ExpertEditVC.xib in Resources */,
 				D3E870A01C6F495300198AF0 /* iTunesArtwork@2x.png in Resources */,
 				D3E767BF1C33ABFF00D532EA /* NotificationCell.xib in Resources */,
 				D3DDC3941C7AD563000020FE /* timeicon.png in Resources */,
 				D3E73C331C2C015B0069B97F /* Roboto-Medium.ttf in Resources */,
 				D3E974C81CB91C9200F70E27 /* SocialSecurityVC.xib in Resources */,
+				2DC0F5C71DC56C5A0021A875 /* EditViewController.xib in Resources */,
 				D3E73C081C2BF90D0069B97F /* LaunchScreen.storyboard in Resources */,
 				D3DE9E011C3422D100F96D4B /* PersonalViewController.xib in Resources */,
 				D3DDC1D31CA148ED007B16AF /* my10.png in Resources */,
@@ -1578,7 +1579,6 @@
 				D3DDC1C91CA148ED007B16AF /* my0.png in Resources */,
 				D3DF30631CA02E28009EF912 /* segment.png in Resources */,
 				D3E010201C41420700F4FBAC /* RateViewController.xib in Resources */,
-				D3E50F101C5BACAE00E95BC2 /* EditViewController.xib in Resources */,
 				D3E0E3A91CC60CDE002FB516 /* AboutMeVC.xib in Resources */,
 				D3DCA9D41C2E75DE009751D0 /* MapViewController.xib in Resources */,
 				D3E8708D1C6F495300198AF0 /* Icon-40.png in Resources */,
@@ -2053,7 +2053,7 @@
 					"$(PROJECT_DIR)/RafikiApp",
 				);
 				INFOPLIST_FILE = RafikiApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2079,7 +2079,7 @@
 					"$(PROJECT_DIR)/RafikiApp",
 				);
 				INFOPLIST_FILE = RafikiApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

@@ -16,6 +16,7 @@
 #import "SocialSecurityVC.h"
 #import "PhotoIdVC.h"
 #import "EditShowSkill.h"
+@import Firebase;
 @interface ExpertEditVC : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate>
 {
     IBOutlet UIScrollView *editScrollview;
@@ -60,6 +61,7 @@
     IBOutlet UIButton *editSkillButton;
     
 }
+@property(strong, nonatomic) FIRDatabaseReference *ref;
 - (IBAction)editSkillButtonAction:(id)sender;
 - (IBAction)editPhotoIdAction:(id)sender;
 - (IBAction)editSocialInfoAction:(id)sender;
