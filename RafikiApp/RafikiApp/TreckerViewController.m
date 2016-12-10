@@ -268,88 +268,88 @@
         [alert show];
     });
 }
-- (void)createBackendChargeWithToken:(STPToken *)token completion:(STPTokenSubmissionHandler)completion
-{
-    if(token.tokenId.length != 0 && token.tokenId != (id)[NSNull null])
-    {
-//        [self.activityIndicator startAnimating];
-              NSLog(@"my token is :-> %@",token.tokenId);
-        AppDelegate *app=(AppDelegate *)[UIApplication sharedApplication].delegate;
-        
-        if (app.trecker||[app.trecker isValid])
-        {
-            [app.trecker invalidate];
-        }
-        stopButton.enabled=NO;
-        stopButton.alpha=0.5;
-//        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-        int price=[[[currentJobArray objectAtIndex:0] valueForKey:@"price_per_session"] intValue];
-        [MBProgressHUD showHUDAddedTo:paymentView animated:YES];
-        NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-        NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
-        
-        NSURL *url = [NSURL URLWithString:@"http://cricyard.com/iphone/rafiki_app/service/stripe_payments.php"];
-        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-        request.HTTPMethod = @"POST";
-        
-        NSLog(@"Payment Token is : %@",token.tokenId);
-        
-        NSString *postBody = [NSString stringWithFormat:@"amount=%d&token=%@",price,token.tokenId];
-        NSLog(@"Url is :- %@",postBody);
-        NSData *data = [postBody dataUsingEncoding:NSUTF8StringEncoding];
-        [request setHTTPBody:data];
-        NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-        [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError)
-         {
-             NSMutableDictionary *dictData  = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error: &connectionError];
-             NSLog(@"dictData === %@",dictData);
-             
-             NSString *Message = [dictData objectForKey:@"msg"];
-             if ([Message isEqualToString:@"sucess"])
-             {
-                 dispatch_sync(dispatch_get_main_queue(), ^{
-                    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-                     RateViewController *rate=[[RateViewController alloc] init];
-                     rate.getperamArray=currentJobArray;
-                     [self.navigationController pushViewController:rate animated:YES];
-                 });
-                
-             }
-             else
-             {
-                 [MBProgressHUD hideHUDForView:paymentView animated:YES];
-             }
-         }];
-    }
-    else
-    {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Rafikki" message:@"invalid token,please try again." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-        [alert show];
-    }
-}
-- (IBAction)payBtnAction:(id)sender
-{
-    [[STPAPIClient sharedClient] createTokenWithCard:self.paymentTextField.cardParams
-                                          completion:^(STPToken *token, NSError *error)
-    {
-                                              
-                                              if (error)
-                                              {
-                                                  [self paymentView:self didFinish:error];
-                                              }
-                                              NSLog(@"Stripe Tocken is:%@",token);
-                                              [self createBackendChargeWithToken:token
-                                                                      completion:^(STPBackendChargeResult result, NSError *error)
-                                              {
-                                                                          if (error)
-                                                                          {
-                                                                              [self paymentView:self didFinish:error];
-                                                                              return;
-                                                                          }
-                                                                          [self paymentView:self didFinish:nil];
-                                              }];
-    }];
-}
+//- (void)createBackendChargeWithToken:(STPToken *)token completion:(STPTokenSubmissionHandler)completion
+//{
+//    if(token.tokenId.length != 0 && token.tokenId != (id)[NSNull null])
+//    {
+////        [self.activityIndicator startAnimating];
+//              NSLog(@"my token is :-> %@",token.tokenId);
+//        AppDelegate *app=(AppDelegate *)[UIApplication sharedApplication].delegate;
+//        
+//        if (app.trecker||[app.trecker isValid])
+//        {
+//            [app.trecker invalidate];
+//        }
+//        stopButton.enabled=NO;
+//        stopButton.alpha=0.5;
+////        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+//        int price=[[[currentJobArray objectAtIndex:0] valueForKey:@"price_per_session"] intValue];
+//        [MBProgressHUD showHUDAddedTo:paymentView animated:YES];
+//        NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+//        NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
+//        
+//        NSURL *url = [NSURL URLWithString:@"http://cricyard.com/iphone/rafiki_app/service/stripe_payments.php"];
+//        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+//        request.HTTPMethod = @"POST";
+//        
+//        NSLog(@"Payment Token is : %@",token.tokenId);
+//        
+//        NSString *postBody = [NSString stringWithFormat:@"amount=%d&token=%@",price,token.tokenId];
+//        NSLog(@"Url is :- %@",postBody);
+//        NSData *data = [postBody dataUsingEncoding:NSUTF8StringEncoding];
+//        [request setHTTPBody:data];
+//        NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+//        [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError)
+//         {
+//             NSMutableDictionary *dictData  = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error: &connectionError];
+//             NSLog(@"dictData === %@",dictData);
+//             
+//             NSString *Message = [dictData objectForKey:@"msg"];
+//             if ([Message isEqualToString:@"sucess"])
+//             {
+//                 dispatch_sync(dispatch_get_main_queue(), ^{
+//                    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+//                     RateViewController *rate=[[RateViewController alloc] init];
+//                     rate.getperamArray=currentJobArray;
+//                     [self.navigationController pushViewController:rate animated:YES];
+//                 });
+//                
+//             }
+//             else
+//             {
+//                 [MBProgressHUD hideHUDForView:paymentView animated:YES];
+//             }
+//         }];
+//    }
+//    else
+//    {
+//        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Rafikki" message:@"invalid token,please try again." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+//        [alert show];
+//    }
+//}
+//- (IBAction)payBtnAction:(id)sender
+//{
+//    [[STPAPIClient sharedClient] createTokenWithCard:self.paymentTextField.cardParams
+//                                          completion:^(STPToken *token, NSError *error)
+//    {
+//                                              
+//                                              if (error)
+//                                              {
+//                                                  [self paymentView:self didFinish:error];
+//                                              }
+//                                              NSLog(@"Stripe Tocken is:%@",token);
+//                                              [self createBackendChargeWithToken:token
+//                                                                      completion:^(STPBackendChargeResult result, NSError *error)
+//                                              {
+//                                                                          if (error)
+//                                                                          {
+//                                                                              [self paymentView:self didFinish:error];
+//                                                                              return;
+//                                                                          }
+//                                                                          [self paymentView:self didFinish:nil];
+//                                              }];
+//    }];
+//}
 - (IBAction)paymentBackAction:(id)sender
 {
     paymentView.hidden=YES;

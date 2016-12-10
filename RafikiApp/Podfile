@@ -12,6 +12,7 @@ pod 'Firebase/Crash'
 pod 'Firebase/Database'
 pod 'Firebase/RemoteConfig'
 pod 'Firebase/Messaging'
+pod 'Stripe'
 end
 
 target 'RafikiAppTests' do

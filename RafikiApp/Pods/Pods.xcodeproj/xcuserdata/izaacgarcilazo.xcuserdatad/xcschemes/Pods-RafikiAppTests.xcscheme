@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0730"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2669CC2E61AB10383274E3E1F535293A"
+               BlueprintIdentifier = "179F3B9CF356D78FCF30E2DA46E065D6"
                BuildableName = "Pods_RafikiAppTests.framework"
                BlueprintName = "Pods-RafikiAppTests"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2669CC2E61AB10383274E3E1F535293A"
+            BlueprintIdentifier = "179F3B9CF356D78FCF30E2DA46E065D6"
             BuildableName = "Pods_RafikiAppTests.framework"
             BlueprintName = "Pods-RafikiAppTests"
             ReferencedContainer = "container:Pods.xcodeproj">
@@ -60,15 +60,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2669CC2E61AB10383274E3E1F535293A"
-            BuildableName = "Pods_RafikiAppTests.framework"
-            BlueprintName = "Pods-RafikiAppTests"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

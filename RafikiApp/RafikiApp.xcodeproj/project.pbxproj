@@ -9,6 +9,51 @@
 /* Begin PBXBuildFile section */
 		1E4EEEF1C187C71408D2A770 /* Pods_RafikiApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF0F9C77CE884D98293A40CC /* Pods_RafikiApp.framework */; };
 		27210362492F6FD7FDDADFB9 /* Pods_RafikiAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC9309529472EDA4E2FEF2E8 /* Pods_RafikiAppUITests.framework */; };
+		2D2BA99C1DF952F4004A7ED1 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D2BA99B1DF952F4004A7ED1 /* HomeViewController.xib */; };
+		2D6EF3611DFB34BB00625481 /* CAPSPageMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6EF3601DFB34BB00625481 /* CAPSPageMenu.m */; };
+		2D6EF3681DFB34C400625481 /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6EF3631DFB34C400625481 /* FriendTableViewCell.m */; };
+		2D6EF3691DFB34C400625481 /* FriendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3641DFB34C400625481 /* FriendTableViewCell.xib */; };
+		2D6EF36A1DFB34C400625481 /* MoodCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6EF3661DFB34C400625481 /* MoodCollectionViewCell.m */; };
+		2D6EF36B1DFB34C400625481 /* MoodCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3671DFB34C400625481 /* MoodCollectionViewCell.xib */; };
+		2D6EF36E1DFB357500625481 /* TestCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6EF36D1DFB357500625481 /* TestCollectionViewController.m */; };
+		2D6EF3761DFB35D900625481 /* TestCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF36F1DFB35D900625481 /* TestCollectionViewController.xib */; };
+		2D6EF3771DFB35D900625481 /* TestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6EF3711DFB35D900625481 /* TestTableViewController.m */; };
+		2D6EF3781DFB35D900625481 /* TestTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3721DFB35D900625481 /* TestTableViewController.xib */; };
+		2D6EF3791DFB35D900625481 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6EF3741DFB35D900625481 /* TestViewController.m */; };
+		2D6EF37A1DFB35D900625481 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3751DFB35D900625481 /* TestViewController.xib */; };
+		2D6EF3961DFB35F600625481 /* happy.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF37B1DFB35F600625481 /* happy.png */; };
+		2D6EF3971DFB35F600625481 /* hungry.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF37C1DFB35F600625481 /* hungry.png */; };
+		2D6EF3981DFB35F600625481 /* loved.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF37D1DFB35F600625481 /* loved.png */; };
+		2D6EF3991DFB35F600625481 /* man1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF37E1DFB35F600625481 /* man1.jpg */; };
+		2D6EF39A1DFB35F600625481 /* man2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF37F1DFB35F600625481 /* man2.jpg */; };
+		2D6EF39B1DFB35F600625481 /* man3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3801DFB35F600625481 /* man3.jpg */; };
+		2D6EF39C1DFB35F600625481 /* man4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3811DFB35F600625481 /* man4.jpg */; };
+		2D6EF39D1DFB35F600625481 /* man5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3821DFB35F600625481 /* man5.jpg */; };
+		2D6EF39E1DFB35F600625481 /* man6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3831DFB35F600625481 /* man6.jpg */; };
+		2D6EF39F1DFB35F600625481 /* man7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3841DFB35F600625481 /* man7.jpg */; };
+		2D6EF3A01DFB35F600625481 /* man8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3851DFB35F600625481 /* man8.jpg */; };
+		2D6EF3A11DFB35F600625481 /* mood1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3861DFB35F600625481 /* mood1.jpg */; };
+		2D6EF3A21DFB35F600625481 /* mood2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3871DFB35F600625481 /* mood2.jpg */; };
+		2D6EF3A31DFB35F600625481 /* mood3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3881DFB35F600625481 /* mood3.jpg */; };
+		2D6EF3A41DFB35F600625481 /* mood4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3891DFB35F600625481 /* mood4.jpg */; };
+		2D6EF3A51DFB35F600625481 /* mood5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF38A1DFB35F600625481 /* mood5.jpg */; };
+		2D6EF3A61DFB35F600625481 /* mood6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF38B1DFB35F600625481 /* mood6.jpg */; };
+		2D6EF3A71DFB35F600625481 /* mood7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF38C1DFB35F600625481 /* mood7.jpg */; };
+		2D6EF3A81DFB35F600625481 /* mood8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF38D1DFB35F600625481 /* mood8.jpg */; };
+		2D6EF3A91DFB35F600625481 /* playful.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF38E1DFB35F600625481 /* playful.png */; };
+		2D6EF3AA1DFB35F600625481 /* relax.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF38F1DFB35F600625481 /* relax.png */; };
+		2D6EF3AB1DFB35F600625481 /* wealthy.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3901DFB35F600625481 /* wealthy.png */; };
+		2D6EF3AC1DFB35F600625481 /* woman1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3911DFB35F600625481 /* woman1.jpg */; };
+		2D6EF3AD1DFB35F600625481 /* woman2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3921DFB35F600625481 /* woman2.jpg */; };
+		2D6EF3AE1DFB35F600625481 /* woman3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3931DFB35F600625481 /* woman3.jpg */; };
+		2D6EF3AF1DFB35F600625481 /* woman4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3941DFB35F600625481 /* woman4.jpg */; };
+		2D6EF3B01DFB35F600625481 /* woman5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3951DFB35F600625481 /* woman5.jpg */; };
+		2D6EF3B41DFB6ECA00625481 /* TestCollectionViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6EF3B21DFB6ECA00625481 /* TestCollectionViewController2.m */; };
+		2D6EF3B51DFB6ECA00625481 /* TestCollectionViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3B31DFB6ECA00625481 /* TestCollectionViewController2.xib */; };
+		2D6EF3B91DFB700D00625481 /* TestCollectionViewController3.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6EF3B71DFB700D00625481 /* TestCollectionViewController3.m */; };
+		2D6EF3BA1DFB700D00625481 /* TestCollectionViewController3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3B81DFB700D00625481 /* TestCollectionViewController3.xib */; };
+		2D6EF3BE1DFB704B00625481 /* TestCollectionViewController4.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6EF3BC1DFB704B00625481 /* TestCollectionViewController4.m */; };
+		2D6EF3BF1DFB704B00625481 /* TestCollectionViewController4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3BD1DFB704B00625481 /* TestCollectionViewController4.xib */; };
 		2DC0F5C71DC56C5A0021A875 /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC0F5C61DC56C5A0021A875 /* EditViewController.xib */; };
 		2DC0F5CD1DC574090021A875 /* ExpertEditVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC0F5CC1DC574090021A875 /* ExpertEditVC.xib */; };
 		2DFA8E4E1D89FC1800DB3458 /* Viewcontroller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DFA8E4D1D89FC1800DB3458 /* Viewcontroller.xib */; };
@@ -164,7 +209,6 @@
 		D3E39EF51C747F0400135159 /* SubCategoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3E39EF31C747F0400135159 /* SubCategoryVC.xib */; };
 		D3E460451CE1EFBF00DF082B /* Stripe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3E460441CE1EFBF00DF082B /* Stripe.framework */; };
 		D3E4F8DF1C2D134200144942 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E4F8DD1C2D134200144942 /* HomeViewController.m */; };
-		D3E4F8E01C2D134200144942 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3E4F8DE1C2D134200144942 /* HomeViewController.xib */; };
 		D3E4F8FC1C2D569B00144942 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E4F8FB1C2D569B00144942 /* SWRevealViewController.m */; };
 		D3E4F9001C2D56B300144942 /* RearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E4F8FE1C2D56B300144942 /* RearViewController.m */; };
 		D3E4F9011C2D56B300144942 /* RearViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3E4F8FF1C2D56B300144942 /* RearViewController.xib */; };
@@ -285,6 +329,60 @@
 
 /* Begin PBXFileReference section */
 		1BAA14ED16039D28CD394091 /* Pods-RafikiAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RafikiAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RafikiAppUITests/Pods-RafikiAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2D2BA99B1DF952F4004A7ED1 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		2D6EF35F1DFB34BB00625481 /* CAPSPageMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAPSPageMenu.h; sourceTree = "<group>"; };
+		2D6EF3601DFB34BB00625481 /* CAPSPageMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAPSPageMenu.m; sourceTree = "<group>"; };
+		2D6EF3621DFB34C400625481 /* FriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendTableViewCell.h; sourceTree = "<group>"; };
+		2D6EF3631DFB34C400625481 /* FriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewCell.m; sourceTree = "<group>"; };
+		2D6EF3641DFB34C400625481 /* FriendTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendTableViewCell.xib; sourceTree = "<group>"; };
+		2D6EF3651DFB34C400625481 /* MoodCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoodCollectionViewCell.h; sourceTree = "<group>"; };
+		2D6EF3661DFB34C400625481 /* MoodCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoodCollectionViewCell.m; sourceTree = "<group>"; };
+		2D6EF3671DFB34C400625481 /* MoodCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoodCollectionViewCell.xib; sourceTree = "<group>"; };
+		2D6EF36C1DFB356500625481 /* TestCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCollectionViewController.h; sourceTree = "<group>"; };
+		2D6EF36D1DFB357500625481 /* TestCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCollectionViewController.m; sourceTree = "<group>"; };
+		2D6EF36F1DFB35D900625481 /* TestCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestCollectionViewController.xib; sourceTree = "<group>"; };
+		2D6EF3701DFB35D900625481 /* TestTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTableViewController.h; sourceTree = "<group>"; };
+		2D6EF3711DFB35D900625481 /* TestTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTableViewController.m; sourceTree = "<group>"; };
+		2D6EF3721DFB35D900625481 /* TestTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestTableViewController.xib; sourceTree = "<group>"; };
+		2D6EF3731DFB35D900625481 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		2D6EF3741DFB35D900625481 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		2D6EF3751DFB35D900625481 /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
+		2D6EF37B1DFB35F600625481 /* happy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = happy.png; sourceTree = "<group>"; };
+		2D6EF37C1DFB35F600625481 /* hungry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hungry.png; sourceTree = "<group>"; };
+		2D6EF37D1DFB35F600625481 /* loved.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loved.png; sourceTree = "<group>"; };
+		2D6EF37E1DFB35F600625481 /* man1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = man1.jpg; sourceTree = "<group>"; };
+		2D6EF37F1DFB35F600625481 /* man2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = man2.jpg; sourceTree = "<group>"; };
+		2D6EF3801DFB35F600625481 /* man3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = man3.jpg; sourceTree = "<group>"; };
+		2D6EF3811DFB35F600625481 /* man4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = man4.jpg; sourceTree = "<group>"; };
+		2D6EF3821DFB35F600625481 /* man5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = man5.jpg; sourceTree = "<group>"; };
+		2D6EF3831DFB35F600625481 /* man6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = man6.jpg; sourceTree = "<group>"; };
+		2D6EF3841DFB35F600625481 /* man7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = man7.jpg; sourceTree = "<group>"; };
+		2D6EF3851DFB35F600625481 /* man8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = man8.jpg; sourceTree = "<group>"; };
+		2D6EF3861DFB35F600625481 /* mood1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mood1.jpg; sourceTree = "<group>"; };
+		2D6EF3871DFB35F600625481 /* mood2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mood2.jpg; sourceTree = "<group>"; };
+		2D6EF3881DFB35F600625481 /* mood3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mood3.jpg; sourceTree = "<group>"; };
+		2D6EF3891DFB35F600625481 /* mood4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mood4.jpg; sourceTree = "<group>"; };
+		2D6EF38A1DFB35F600625481 /* mood5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mood5.jpg; sourceTree = "<group>"; };
+		2D6EF38B1DFB35F600625481 /* mood6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mood6.jpg; sourceTree = "<group>"; };
+		2D6EF38C1DFB35F600625481 /* mood7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mood7.jpg; sourceTree = "<group>"; };
+		2D6EF38D1DFB35F600625481 /* mood8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mood8.jpg; sourceTree = "<group>"; };
+		2D6EF38E1DFB35F600625481 /* playful.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playful.png; sourceTree = "<group>"; };
+		2D6EF38F1DFB35F600625481 /* relax.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = relax.png; sourceTree = "<group>"; };
+		2D6EF3901DFB35F600625481 /* wealthy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wealthy.png; sourceTree = "<group>"; };
+		2D6EF3911DFB35F600625481 /* woman1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = woman1.jpg; sourceTree = "<group>"; };
+		2D6EF3921DFB35F600625481 /* woman2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = woman2.jpg; sourceTree = "<group>"; };
+		2D6EF3931DFB35F600625481 /* woman3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = woman3.jpg; sourceTree = "<group>"; };
+		2D6EF3941DFB35F600625481 /* woman4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = woman4.jpg; sourceTree = "<group>"; };
+		2D6EF3951DFB35F600625481 /* woman5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = woman5.jpg; sourceTree = "<group>"; };
+		2D6EF3B11DFB6ECA00625481 /* TestCollectionViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCollectionViewController2.h; sourceTree = "<group>"; };
+		2D6EF3B21DFB6ECA00625481 /* TestCollectionViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCollectionViewController2.m; sourceTree = "<group>"; };
+		2D6EF3B31DFB6ECA00625481 /* TestCollectionViewController2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestCollectionViewController2.xib; sourceTree = "<group>"; };
+		2D6EF3B61DFB700D00625481 /* TestCollectionViewController3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCollectionViewController3.h; sourceTree = "<group>"; };
+		2D6EF3B71DFB700D00625481 /* TestCollectionViewController3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCollectionViewController3.m; sourceTree = "<group>"; };
+		2D6EF3B81DFB700D00625481 /* TestCollectionViewController3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestCollectionViewController3.xib; sourceTree = "<group>"; };
+		2D6EF3BB1DFB704B00625481 /* TestCollectionViewController4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCollectionViewController4.h; sourceTree = "<group>"; };
+		2D6EF3BC1DFB704B00625481 /* TestCollectionViewController4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCollectionViewController4.m; sourceTree = "<group>"; };
+		2D6EF3BD1DFB704B00625481 /* TestCollectionViewController4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestCollectionViewController4.xib; sourceTree = "<group>"; };
 		2DC0F5C61DC56C5A0021A875 /* EditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditViewController.xib; sourceTree = "<group>"; };
 		2DC0F5CC1DC574090021A875 /* ExpertEditVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpertEditVC.xib; sourceTree = "<group>"; };
 		2DFA8E4D1D89FC1800DB3458 /* Viewcontroller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Viewcontroller.xib; sourceTree = "<group>"; };
@@ -527,7 +625,6 @@
 		D3E460441CE1EFBF00DF082B /* Stripe.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Stripe.framework; sourceTree = "<group>"; };
 		D3E4F8DC1C2D134200144942 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		D3E4F8DD1C2D134200144942 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		D3E4F8DE1C2D134200144942 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		D3E4F8FA1C2D569B00144942 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		D3E4F8FB1C2D569B00144942 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		D3E4F8FD1C2D56B300144942 /* RearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RearViewController.h; sourceTree = "<group>"; };
@@ -922,6 +1019,59 @@
 		D3DDA5BC1C43D93300A1D381 /* User Class */ = {
 			isa = PBXGroup;
 			children = (
+				2D6EF37B1DFB35F600625481 /* happy.png */,
+				2D6EF37C1DFB35F600625481 /* hungry.png */,
+				2D6EF37D1DFB35F600625481 /* loved.png */,
+				2D6EF37E1DFB35F600625481 /* man1.jpg */,
+				2D6EF37F1DFB35F600625481 /* man2.jpg */,
+				2D6EF3801DFB35F600625481 /* man3.jpg */,
+				2D6EF3811DFB35F600625481 /* man4.jpg */,
+				2D6EF3821DFB35F600625481 /* man5.jpg */,
+				2D6EF3831DFB35F600625481 /* man6.jpg */,
+				2D6EF3841DFB35F600625481 /* man7.jpg */,
+				2D6EF3851DFB35F600625481 /* man8.jpg */,
+				2D6EF3861DFB35F600625481 /* mood1.jpg */,
+				2D6EF3871DFB35F600625481 /* mood2.jpg */,
+				2D6EF3881DFB35F600625481 /* mood3.jpg */,
+				2D6EF3891DFB35F600625481 /* mood4.jpg */,
+				2D6EF38A1DFB35F600625481 /* mood5.jpg */,
+				2D6EF38B1DFB35F600625481 /* mood6.jpg */,
+				2D6EF38C1DFB35F600625481 /* mood7.jpg */,
+				2D6EF38D1DFB35F600625481 /* mood8.jpg */,
+				2D6EF38E1DFB35F600625481 /* playful.png */,
+				2D6EF38F1DFB35F600625481 /* relax.png */,
+				2D6EF3901DFB35F600625481 /* wealthy.png */,
+				2D6EF3911DFB35F600625481 /* woman1.jpg */,
+				2D6EF3921DFB35F600625481 /* woman2.jpg */,
+				2D6EF3931DFB35F600625481 /* woman3.jpg */,
+				2D6EF3941DFB35F600625481 /* woman4.jpg */,
+				2D6EF3951DFB35F600625481 /* woman5.jpg */,
+				2D6EF35F1DFB34BB00625481 /* CAPSPageMenu.h */,
+				2D6EF3601DFB34BB00625481 /* CAPSPageMenu.m */,
+				2D6EF3621DFB34C400625481 /* FriendTableViewCell.h */,
+				2D6EF3631DFB34C400625481 /* FriendTableViewCell.m */,
+				2D6EF3641DFB34C400625481 /* FriendTableViewCell.xib */,
+				2D6EF3651DFB34C400625481 /* MoodCollectionViewCell.h */,
+				2D6EF3661DFB34C400625481 /* MoodCollectionViewCell.m */,
+				2D6EF3671DFB34C400625481 /* MoodCollectionViewCell.xib */,
+				2D6EF36C1DFB356500625481 /* TestCollectionViewController.h */,
+				2D6EF36D1DFB357500625481 /* TestCollectionViewController.m */,
+				2D6EF36F1DFB35D900625481 /* TestCollectionViewController.xib */,
+				2D6EF3B11DFB6ECA00625481 /* TestCollectionViewController2.h */,
+				2D6EF3B21DFB6ECA00625481 /* TestCollectionViewController2.m */,
+				2D6EF3B31DFB6ECA00625481 /* TestCollectionViewController2.xib */,
+				2D6EF3B61DFB700D00625481 /* TestCollectionViewController3.h */,
+				2D6EF3B71DFB700D00625481 /* TestCollectionViewController3.m */,
+				2D6EF3B81DFB700D00625481 /* TestCollectionViewController3.xib */,
+				2D6EF3BB1DFB704B00625481 /* TestCollectionViewController4.h */,
+				2D6EF3BC1DFB704B00625481 /* TestCollectionViewController4.m */,
+				2D6EF3BD1DFB704B00625481 /* TestCollectionViewController4.xib */,
+				2D6EF3701DFB35D900625481 /* TestTableViewController.h */,
+				2D6EF3711DFB35D900625481 /* TestTableViewController.m */,
+				2D6EF3721DFB35D900625481 /* TestTableViewController.xib */,
+				2D6EF3731DFB35D900625481 /* TestViewController.h */,
+				2D6EF3741DFB35D900625481 /* TestViewController.m */,
+				2D6EF3751DFB35D900625481 /* TestViewController.xib */,
 				D3E73BFE1C2BF90D0069B97F /* ViewController.h */,
 				D3E73BFF1C2BF90D0069B97F /* ViewController.m */,
 				2DFA8E4D1D89FC1800DB3458 /* Viewcontroller.xib */,
@@ -942,7 +1092,7 @@
 				D3DF288E1C6DAB4800BFDFA1 /* AddCatViewController.xib */,
 				D3E4F8DC1C2D134200144942 /* HomeViewController.h */,
 				D3E4F8DD1C2D134200144942 /* HomeViewController.m */,
-				D3E4F8DE1C2D134200144942 /* HomeViewController.xib */,
+				2D2BA99B1DF952F4004A7ED1 /* HomeViewController.xib */,
 				D3DCA9D01C2E75DE009751D0 /* MapViewController.h */,
 				D3DCA9D11C2E75DE009751D0 /* MapViewController.m */,
 				D3DCA9D21C2E75DE009751D0 /* MapViewController.xib */,
@@ -1471,6 +1621,7 @@
 				D3E73C161C2BF90D0069B97F /* Frameworks */,
 				D3E73C171C2BF90D0069B97F /* Resources */,
 				DFB145BBC630AB154DE6ED91 /* [CP] Copy Pods Resources */,
+				39EF14053954147462173485 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1532,9 +1683,14 @@
 			files = (
 				D3DDC1CD1CA148ED007B16AF /* my4.png in Resources */,
 				D3E5122A1C36BBF200DD540E /* SocialViewController.xib in Resources */,
+				2D6EF3AB1DFB35F600625481 /* wealthy.png in Resources */,
 				D307306B1C9C24FD00AF41CE /* SelectAndAddPaymentVC.xib in Resources */,
+				2D6EF3A61DFB35F600625481 /* mood6.jpg in Resources */,
+				2D6EF3A41DFB35F600625481 /* mood4.jpg in Resources */,
+				2D6EF3691DFB34C400625481 /* FriendTableViewCell.xib in Resources */,
 				D3EF3F081C63784E00367F7D /* PaychackCell.xib in Resources */,
 				D3E9F12A1C3FC9C4002884C0 /* ExpertHomeViewController.xib in Resources */,
+				2D6EF3AD1DFB35F600625481 /* woman2.jpg in Resources */,
 				D3DD59CB1C329706002658D2 /* ProfileViewController.xib in Resources */,
 				D3E8709A1C6F495300198AF0 /* Icon-Small.png in Resources */,
 				D3E8708E1C6F495300198AF0 /* Icon-40@2x.png in Resources */,
@@ -1542,6 +1698,7 @@
 				D357201E1CC7AA89007A57E3 /* PaymentInfoVC.xib in Resources */,
 				D3DD41111C3CE70A002614D6 /* AboutJobViewController.xib in Resources */,
 				D3E73C351C2C015B0069B97F /* Roboto-Thin.ttf in Resources */,
+				2D6EF3AF1DFB35F600625481 /* woman4.jpg in Resources */,
 				D3DD84E91C69A7C2008521AB /* pin.png in Resources */,
 				D3DFCA111C3814980089FD98 /* CategoryViewController.xib in Resources */,
 				D3DDD78C1C450585005461F3 /* CommonShowJobView.xib in Resources */,
@@ -1570,24 +1727,30 @@
 				D3DF305D1CA02248009EF912 /* Whilbg.png in Resources */,
 				D3E8709B1C6F495300198AF0 /* Icon-Small@2x.png in Resources */,
 				D3DDC1D41CA148ED007B16AF /* my11.png in Resources */,
+				2D6EF3A21DFB35F600625481 /* mood2.jpg in Resources */,
 				D3E974CD1CB93AE800F70E27 /* PhotoIdVC.xib in Resources */,
+				2D6EF3761DFB35D900625481 /* TestCollectionViewController.xib in Resources */,
 				D3E73C321C2C015B0069B97F /* Roboto-Bold.ttf in Resources */,
 				D35720231CC7BF5A007A57E3 /* DoneSignupVC.xib in Resources */,
 				D3DDA5B31C437A2E00A1D381 /* star_highlighted.png in Resources */,
 				D3DDA5B21C437A2E00A1D381 /* star_highlighted-darker@2x.png in Resources */,
 				D3E4F9011C2D56B300144942 /* RearViewController.xib in Resources */,
+				2D6EF3A91DFB35F600625481 /* playful.png in Resources */,
 				D3DDC1C91CA148ED007B16AF /* my0.png in Resources */,
 				D3DF30631CA02E28009EF912 /* segment.png in Resources */,
 				D3E010201C41420700F4FBAC /* RateViewController.xib in Resources */,
 				D3E0E3A91CC60CDE002FB516 /* AboutMeVC.xib in Resources */,
 				D3DCA9D41C2E75DE009751D0 /* MapViewController.xib in Resources */,
+				2D6EF3A81DFB35F600625481 /* mood8.jpg in Resources */,
+				2D6EF3AC1DFB35F600625481 /* woman1.jpg in Resources */,
 				D3E8708D1C6F495300198AF0 /* Icon-40.png in Resources */,
 				D3E73C3B1C2C02010069B97F /* SignupViewController.xib in Resources */,
+				2D6EF3A31DFB35F600625481 /* mood3.jpg in Resources */,
 				D3DDA5B11C437A2E00A1D381 /* star_highlighted-darker.png in Resources */,
 				D3DDC1D11CA148ED007B16AF /* my8.png in Resources */,
 				D3D0E4771CA5527D00B2AB51 /* BecomeRafikkiVC.xib in Resources */,
+				2D6EF3981DFB35F600625481 /* loved.png in Resources */,
 				D3DDC1CA1CA148ED007B16AF /* my1.png in Resources */,
-				D3E4F8E01C2D134200144942 /* HomeViewController.xib in Resources */,
 				D3EA12CD1CA2704A0036FC3D /* AvibilityCell.xib in Resources */,
 				D3DE3E1D1CC74B1C009B1443 /* SkillView.xib in Resources */,
 				D3E584171C5A38350044AAEE /* SuggestionCollectionCell.xib in Resources */,
@@ -1595,42 +1758,64 @@
 				D3E767BA1C33A16900D532EA /* MessageListCell.xib in Resources */,
 				D3DF28901C6DAB4800BFDFA1 /* AddCatViewController.xib in Resources */,
 				2DFA8E4E1D89FC1800DB3458 /* Viewcontroller.xib in Resources */,
+				2D6EF3A01DFB35F600625481 /* man8.jpg in Resources */,
 				D3D0E47C1CA5760700B2AB51 /* check&DiclosesVC.xib in Resources */,
+				2D6EF36B1DFB34C400625481 /* MoodCollectionViewCell.xib in Resources */,
 				D3DD59D61C32CC38002658D2 /* jobHistoryTableViewCell.xib in Resources */,
 				D3DF7D2F1C61F13A000858E1 /* VeryficationVC.xib in Resources */,
+				2D6EF3971DFB35F600625481 /* hungry.png in Resources */,
 				D3DFFB681C8F087A009B0B87 /* FilterListViewController.xib in Resources */,
+				2D6EF3BA1DFB700D00625481 /* TestCollectionViewController3.xib in Resources */,
+				2D6EF3781DFB35D900625481 /* TestTableViewController.xib in Resources */,
 				D3DE9DF21C33EEEE00F96D4B /* hireRequestCell.xib in Resources */,
 				D3DDC1CF1CA148ED007B16AF /* my6.png in Resources */,
+				2D6EF3991DFB35F600625481 /* man1.jpg in Resources */,
 				D3DF03151CC8CD88005D763F /* ExpertSignupVC.xib in Resources */,
 				D3E8709C1C6F495300198AF0 /* Icon-Small@3x.png in Resources */,
 				D3E870901C6F495300198AF0 /* Icon-60.png in Resources */,
+				2D6EF39D1DFB35F600625481 /* man5.jpg in Resources */,
 				D3E88E8D1C71C715001B94BA /* HelpViewController.xib in Resources */,
 				D3DDA5BA1C43CFFA00A1D381 /* ExpertRateViewController.xib in Resources */,
 				D3E83B461CC63D2900EE3C3D /* AvailabilityDaysCell.xib in Resources */,
+				2D6EF3961DFB35F600625481 /* happy.png in Resources */,
 				D3E870931C6F495300198AF0 /* Icon-72.png in Resources */,
+				2D2BA99C1DF952F4004A7ED1 /* HomeViewController.xib in Resources */,
+				2D6EF3A11DFB35F600625481 /* mood1.jpg in Resources */,
 				D3DD7DB41C5256400034AE2C /* TreckerViewController.xib in Resources */,
 				D3EE6F261C4E3AFF0069C75D /* SearchView.xib in Resources */,
 				65067A551D828848002C0463 /* GoogleService-Info.plist in Resources */,
 				D3DF8F901C7849410067CF99 /* JobHistoryViewController.xib in Resources */,
 				D3DD7AB51C68BC8D00F9E6FB /* ClientsViewcontroller.xib in Resources */,
+				2D6EF3AE1DFB35F600625481 /* woman3.jpg in Resources */,
 				D3DEDBF31C89610E00FD4EE3 /* PaymentDepositMethods.xib in Resources */,
+				2D6EF39B1DFB35F600625481 /* man3.jpg in Resources */,
 				D3E870961C6F495300198AF0 /* Icon-76@2x.png in Resources */,
 				D3E870981C6F495300198AF0 /* Icon-Small-50.png in Resources */,
+				2D6EF39E1DFB35F600625481 /* man6.jpg in Resources */,
 				D3DF30491CA021AB009EF912 /* centerButton.png in Resources */,
 				D3E39EF51C747F0400135159 /* SubCategoryVC.xib in Resources */,
+				2D6EF3A51DFB35F600625481 /* mood5.jpg in Resources */,
 				D3E8709E1C6F495300198AF0 /* Icon@2x.png in Resources */,
 				D3E870921C6F495300198AF0 /* Icon-60@3x.png in Resources */,
+				2D6EF37A1DFB35D900625481 /* TestViewController.xib in Resources */,
+				2D6EF3B01DFB35F600625481 /* woman5.jpg in Resources */,
 				D3DD20471C53A4A6007F96F4 /* leftchatBG.png in Resources */,
 				D3E870971C6F495300198AF0 /* Icon-83.5@2x.png in Resources */,
 				D3DDD7301C6B4EB700033F7F /* TrasactionViewController.xib in Resources */,
 				D3E73C051C2BF90D0069B97F /* Assets.xcassets in Resources */,
+				2D6EF39A1DFB35F600625481 /* man2.jpg in Resources */,
 				D3DDA5B41C437A2E00A1D381 /* star.png in Resources */,
 				D3DDC1CE1CA148ED007B16AF /* my5.png in Resources */,
+				2D6EF3A71DFB35F600625481 /* mood7.jpg in Resources */,
 				D3E870991C6F495300198AF0 /* Icon-Small-50@2x.png in Resources */,
 				D3DDC1CC1CA148ED007B16AF /* my3.png in Resources */,
 				D3E5841C1C5A3A500044AAEE /* SuggestionCell.xib in Resources */,
+				2D6EF39F1DFB35F600625481 /* man7.jpg in Resources */,
 				D3DE9DED1C33D94100F96D4B /* PastJobCell.xib in Resources */,
+				2D6EF3BF1DFB704B00625481 /* TestCollectionViewController4.xib in Resources */,
 				D3DDA5B51C437A2E00A1D381 /* star@2x.png in Resources */,
+				2D6EF3AA1DFB35F600625481 /* relax.png in Resources */,
+				2D6EF39C1DFB35F600625481 /* man4.jpg in Resources */,
 				D3DDC1CB1CA148ED007B16AF /* my2.png in Resources */,
 				D3DD203F1C539D47007F96F4 /* ChatViewController.xib in Resources */,
 				D35CCD3C1CEC662D0054B9C6 /* EditSkillVC.xib in Resources */,
@@ -1639,6 +1824,7 @@
 				D3E870941C6F495300198AF0 /* Icon-72@2x.png in Resources */,
 				D3E767C41C33AC3700D532EA /* NotificationController.xib in Resources */,
 				D3DE9DFC1C340F0100F96D4B /* UserProfileViewcontroller.xib in Resources */,
+				2D6EF3B51DFB6ECA00625481 /* TestCollectionViewController2.xib in Resources */,
 				D3E8708F1C6F495300198AF0 /* Icon-40@3x.png in Resources */,
 				D3E767C91C33B9F800D532EA /* DeskBoardController.xib in Resources */,
 			);
@@ -1661,6 +1847,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		39EF14053954147462173485 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RafikiAppUITests/Pods-RafikiAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5CC3C51646F4FAFD21C6E3C8 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1688,7 +1889,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		8EEE1DD277F5992E80513BCF /* [CP] Check Pods Manifest.lock */ = {
@@ -1703,7 +1904,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		933ABF6D00A9E179867F1F4E /* [CP] Embed Pods Frameworks */ = {
@@ -1763,7 +1964,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FB436E608DF6AEFD8209601D /* [CP] Copy Pods Resources */ = {
@@ -1788,6 +1989,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D6EF3B91DFB700D00625481 /* TestCollectionViewController3.m in Sources */,
 				D3E584161C5A38350044AAEE /* SuggestionCollectionCell.m in Sources */,
 				D3DE9DFB1C340F0100F96D4B /* UserProfileViewcontroller.m in Sources */,
 				D3E767B91C33A16900D532EA /* MessageListCell.m in Sources */,
@@ -1814,13 +2016,16 @@
 				D3DD7DB31C5256400034AE2C /* TreckerViewController.m in Sources */,
 				D3E172AE1C4A53DC005E80BB /* UIImageView+AFNetworking.m in Sources */,
 				D3DF288F1C6DAB4800BFDFA1 /* AddCatViewController.m in Sources */,
+				2D6EF3BE1DFB704B00625481 /* TestCollectionViewController4.m in Sources */,
 				D3DD59CA1C329706002658D2 /* ProfileViewController.m in Sources */,
 				D3E172AF1C4A53DC005E80BB /* UIProgressView+AFNetworking.m in Sources */,
 				D3E862ED1C5CFBD400E50110 /* JPSThumbnailAnnotationView.m in Sources */,
 				D3E172AC1C4A53DC005E80BB /* UIAlertView+AFNetworking.m in Sources */,
+				2D6EF3791DFB35D900625481 /* TestViewController.m in Sources */,
 				D3E172A21C4A53DC005E80BB /* AFHTTPRequestOperationManager.m in Sources */,
 				D3E73C6C1C2C16110069B97F /* IQToolbar.m in Sources */,
 				D3DCA9FA1C2E9334009751D0 /* NSData+ImageContentType.m in Sources */,
+				2D6EF3771DFB35D900625481 /* TestTableViewController.m in Sources */,
 				D3E83B451CC63D2900EE3C3D /* AvailabilityDaysCell.m in Sources */,
 				D3DD59D01C32B5F4002658D2 /* BasicInfoTableViewCell.m in Sources */,
 				D3E0101F1C41420700F4FBAC /* RateViewController.m in Sources */,
@@ -1846,11 +2051,14 @@
 				D3DE9DEC1C33D94100F96D4B /* PastJobCell.m in Sources */,
 				D3E172A41C4A53DC005E80BB /* AFNetworkReachabilityManager.m in Sources */,
 				D3E5841B1C5A3A500044AAEE /* SuggestionCell.m in Sources */,
+				2D6EF3611DFB34BB00625481 /* CAPSPageMenu.m in Sources */,
 				D3DD41101C3CE70A002614D6 /* AboutJobViewController.m in Sources */,
 				D3DCAA061C2E9334009751D0 /* UIImageView+HighlightedWebCache.m in Sources */,
+				2D6EF36E1DFB357500625481 /* TestCollectionViewController.m in Sources */,
 				D3E73C651C2C16110069B97F /* IQUIWindow+Hierarchy.m in Sources */,
 				D3E172A11C4A53DC005E80BB /* AFHTTPRequestOperation.m in Sources */,
 				D3E73C6A1C2C16110069B97F /* IQBarButtonItem.m in Sources */,
+				2D6EF3681DFB34C400625481 /* FriendTableViewCell.m in Sources */,
 				D3E9F1291C3FC9C4002884C0 /* ExpertHomeViewController.m in Sources */,
 				D3DCAA001C2E9334009751D0 /* SDWebImageManager.m in Sources */,
 				D3E73BFD1C2BF90D0069B97F /* AppDelegate.m in Sources */,
@@ -1870,7 +2078,9 @@
 				D3DCAA041C2E9334009751D0 /* UIImage+MultiFormat.m in Sources */,
 				D3E172A31C4A53DC005E80BB /* AFHTTPSessionManager.m in Sources */,
 				D3DCA9FF1C2E9334009751D0 /* SDWebImageDownloaderOperation.m in Sources */,
+				2D6EF3B41DFB6ECA00625481 /* TestCollectionViewController2.m in Sources */,
 				D3E50F0F1C5BACAE00E95BC2 /* EditViewController.m in Sources */,
+				2D6EF36A1DFB34C400625481 /* MoodCollectionViewCell.m in Sources */,
 				D3DFCA101C3814980089FD98 /* CategoryViewController.m in Sources */,
 				D3E862EC1C5CFBD400E50110 /* JPSThumbnailAnnotation.m in Sources */,
 				D3DE9E001C3422D100F96D4B /* PersonalViewController.m in Sources */,

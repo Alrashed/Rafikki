@@ -9,8 +9,10 @@
 #import "HomeViewController.h"
 #import "CategoryViewController.h"
 #define IS_OS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
-@interface HomeViewController ()
 
+
+@interface HomeViewController ()
+@property (nonatomic) CAPSPageMenu *pageMenu;
 @end
 
 @implementation HomeViewController
@@ -19,12 +21,59 @@
 {
     [super viewDidLoad];
     
+        
       [sliderButton addTarget:self.revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
     
     homeScrollview.contentSize=CGSizeMake([[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height+50);
     
     UINib *nib = [UINib nibWithNibName:@"SuggestionCollectionCell" bundle: nil];
     [suggestionCollection registerNib:nib forCellWithReuseIdentifier:@"SuggestionCollectionCell"];
+    
+    
+    
+    
+    
+//    self.title = @"PAGE MENU";
+//    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:30.0/255.0 green:30.0/255.0 blue:30.0/255.0 alpha:1.0];
+//    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
+//    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+//    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+//    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+//    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor orangeColor]};
+//    
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"<-" style:UIBarButtonItemStyleDone target:self action:@selector(didTapGoToLeft)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"->" style:UIBarButtonItemStyleDone target:self action:@selector(didTapGoToRight)];
+    
+    TestCollectionViewController *controller1 = [[TestCollectionViewController alloc]initWithNibName:@"TestCollectionViewController" bundle:nil];
+    controller1.title = @"o";
+    TestCollectionViewController2 *controller2 = [[TestCollectionViewController2 alloc]initWithNibName:@"TestCollectionViewController2" bundle:nil];
+    controller2.title = @"o";
+    TestCollectionViewController3 *controller3 = [[TestCollectionViewController3 alloc]initWithNibName:@"TestCollectionViewController3" bundle:nil];
+    controller3.title = @"o";
+    TestCollectionViewController4 *controller4 = [[TestCollectionViewController4 alloc]initWithNibName:@"TestCollectionViewController4" bundle:nil];
+    controller4.title = @"o";
+    
+    NSArray *controllerArray = @[controller1, controller2, controller3, controller4];
+    NSDictionary *parameters = @{
+                                 CAPSPageMenuOptionScrollMenuBackgroundColor: [UIColor colorWithRed:46/255.0 green:139/255.0 blue:111/255.0 alpha:1.0],
+                                 CAPSPageMenuOptionViewBackgroundColor: [UIColor blackColor],
+                                 CAPSPageMenuOptionSelectionIndicatorColor: [UIColor colorWithRed:46/255.0 green:139/255.0 blue:111/255.0 alpha:1.0],
+                                 CAPSPageMenuOptionBottomMenuHairlineColor: [UIColor colorWithRed:46/255.0 green:139/255.0 blue:111/255.0 alpha:1.0],
+                                 CAPSPageMenuOptionMenuItemFont: [UIFont fontWithName:@"HelveticaNeue" size:12],
+                                 CAPSPageMenuOptionSelectedMenuItemLabelColor: [UIColor whiteColor],
+                                 CAPSPageMenuOptionUnselectedMenuItemLabelColor : [UIColor blackColor],
+                                 CAPSPageMenuOptionMenuHeight: @(14.0),
+                                 CAPSPageMenuOptionMenuItemWidth: @(20.0),
+                                 CAPSPageMenuOptionCenterMenuItems: @(YES)
+                                 };
+
+    _pageMenu = [[CAPSPageMenu alloc] initWithViewControllers:controllerArray frame:CGRectMake(0.0, 300.0, self.view.frame.size.width, 270.0) options:parameters];
+    [self.view addSubview:_pageMenu.view];
+
+    
+    
+    
+    
     
     [self passSuggestionApi];
         SMRotaryWheel *wheel;
@@ -65,6 +114,22 @@
     [self.view addGestureRecognizer:[self.revealViewController tapGestureRecognizer]];
 //    [self.view addGestureRecognizer:[self.revealViewController panGestureRecognizer]];
 }
+- (void)didTapGoToLeft {
+    NSInteger currentIndex = self.pageMenu.currentPageIndex;
+    
+    if (currentIndex > 0) {
+        [_pageMenu moveToPage:currentIndex - 1];
+    }
+}
+
+- (void)didTapGoToRight {
+    NSInteger currentIndex = self.pageMenu.currentPageIndex;
+    
+    if (currentIndex < self.pageMenu.controllerArray.count) {
+        [self.pageMenu moveToPage:currentIndex + 1];
+    }
+}
+
 - (void) wheelDidChangeValue:(NSString *)newValue
 {
   NSLog(@"%@", newValue);

@@ -17,6 +17,17 @@
 #import "SubCategoryVC.h"
 #import "SMRotaryWheel.h"
 #import "SMRotaryProtocol.h"
+
+#import "CAPSPageMenu.h"
+
+#import "TestTableViewController.h"
+#import "TestCollectionViewController.h"
+#import "TestCollectionViewController2.h"
+#import "TestCollectionViewController3.h"
+#import "TestCollectionViewController4.h"
+#import "TestViewController.h"
+
+
 @interface HomeViewController : UIViewController<SWRevealViewControllerDelegate,CLLocationManagerDelegate,SMRotaryProtocol>
 {
     IBOutlet UIButton *sliderButton;
@@ -38,7 +49,9 @@
     NSMutableArray *annotationArray;
     NSMutableArray *pinArray;
     IBOutlet UIView *catWhileView;
+
 }
+
 - (IBAction)getchureAction:(id)sender;
 - (IBAction)seeAllAction:(id)sender;
 - (IBAction)fitnessAction:(id)sender;

@@ -26,6 +26,7 @@
 #import "AboutMeVC.h"//screen6
 #import "PaymentInfoVC.h"//screen7
 @import Firebase;
+@import Stripe;
 
 
 #define IS_OS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
@@ -34,11 +35,16 @@
 @end
 
 @implementation AppDelegate
+
 @synthesize trecker,skillCountTag;
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     // Use Firebase library to configure APIs
     [FIRApp configure];
+//    [[STPPaymentConfiguration sharedConfiguration] setPublishableKey:@"pk_test_6pRNASCoBOKtIshFeQd4XMUh"];
+    
     [Stripe setDefaultPublishableKey:@"pk_test_ecZONuPBHFsDKqp0yswOnCNV"];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     NSLog(@"my screen size:%f",[UIScreen mainScreen].bounds.size.height);

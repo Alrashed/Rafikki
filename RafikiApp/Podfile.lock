@@ -89,6 +89,7 @@ PODS:
   - GoogleSymbolUtilities (1.1.1)
   - GoogleUtilities (1.3.1):
     - GoogleSymbolUtilities (~> 1.0)
+  - Stripe (9.2.0)
 
 DEPENDENCIES:
   - Braintree
@@ -99,6 +100,7 @@ DEPENDENCIES:
   - Firebase/Messaging
   - Firebase/RemoteConfig
   - Firebase/Storage
+  - Stripe
 
 SPEC CHECKSUMS:
   Braintree: 05791bdc6d43c3faf2f802dd2d687e9f619f7f57
@@ -118,7 +120,8 @@ SPEC CHECKSUMS:
   GoogleParsingUtilities: 30b3896f9ee167dc78747f013d3de157ced1cadf
   GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
+  Stripe: a47770e82db059d0e7e160f9aabc2997055ee911
 
-PODFILE CHECKSUM: 128435a08857ee006e181c8a7c26e293cd4e0003
+PODFILE CHECKSUM: 64d0d2302940d90fd68865e5bee6c5e904cb29be
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.1

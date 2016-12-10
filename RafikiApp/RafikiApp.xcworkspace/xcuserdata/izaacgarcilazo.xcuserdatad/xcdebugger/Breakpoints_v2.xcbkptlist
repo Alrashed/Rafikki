@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RafikiApp/MapViewController.m"
-            timestampString = "502053674.051193"
+            timestampString = "502823219.291173"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "-passGetCategorys"
             landmarkType = "7">
          </BreakpointContent>
@@ -150,15 +150,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RafikiApp/MapViewController.m"
-            timestampString = "502053674.051193"
+            timestampString = "502823301.57411"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "-passGetCategorys"
             landmarkType = "7">
          </BreakpointContent>

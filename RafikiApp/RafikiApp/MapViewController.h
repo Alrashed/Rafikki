@@ -41,6 +41,7 @@
     IBOutlet UILabel *priceLbl;
     IBOutlet UISwitch *onlineSwitch;
     NSString *genderStr;
+    NSMutableDictionary *categories;
     NSMutableDictionary *catDics;
     IBOutlet UITableView *catTbl;
     IBOutlet UIView *catView;

@@ -114,61 +114,27 @@
                                                    otherButtonTitles:nil];
          [alertView show];
      }];
-    
-////    NSString *string1 = @"/";
-////    NSString *string2 = user.uid;
-////    NSLog(@"%@", string2);
-////    NSString *string3 = [string1 stringByAppendingString:string2];
-////    NSLog(@"%@", string3);
-//    
-//    [catDics setValue:@"1" forKey:@"cat"];
-//    NSLog(@"%@", catDics);
+//    catDics = [NSMutableDictionary dictionary];
+//   // [catDics setObject:@"" forKey:@"cat"];
 //    FIRDatabaseQuery *mycatQuery = [_ref child:@"cat"];
-////    FIRDatabaseQuery *myTopPostsQuery = [[[_ref child:@"categories"]
-////                                          child:[super getUid]]
-////                                         queryOrderedByChild:@"starCount"];
-//    //[[mycatQuery queryOrderedByChild:@"cat"] observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot *snapshot) {
-//        [[mycatQuery queryOrderedByChild:@"cat_name"]observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot *snapshot) {
+//////    FIRDatabaseQuery *myTopPostsQuery = [[[_ref child:@"categories"]
+//////                                          child:[super getUid]]
+//////                                         queryOrderedByChild:@"starCount"];
+//    [mycatQuery observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot *snapshot) {
+////    //    [[mycatQuery queryOrderedByChild:@"cat_name"]observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot *snapshot) {
+//        
 //        //catDics = (NSMutableDictionary *)snapshot.value;
-//        [catDics setValue:snapshot.key forKey:@"cat"];
-//        NSLog(@"%@", catDics);
-//        [catTbl reloadData];
-////        NSString *child = @"";
-////        NSString *children = @"";
-////        for (child in snapshot.children) {
-////            //Here you can access child.key
-////            children = child;
-//        
-//        
-////        }
-//        //catDics = children;
-//        //NSLog(@"%@", children);
-//        
-    
+//        //NSMutableDictionary *categ = (NSMutableDictionary *)snapshot.value;
+//        catDics = (NSMutableDictionary *)snapshot.value;
+//        //catDics=[categ valueForKey:@"cat"];
+//        //[catDics setObject:categ forKey:@"cat"];
+////       //[catDics setValue:snapshot.key forKey:@"cat"];
+////            //cats = (NSArray *)snapshot.key;
+//        NSLog(@"%@catDics", catDics);
+//        //NSLog(@"%@categ", categ);
 //    }];
+//    [catTbl reloadData];
     
-    
-//    FIRDatabaseQuery *myCategoryQuery = [_ref child:string1];
-//    
-//    [[[myCategoryQuery queryOrderedByKey] queryEqualToValue:@"categories"]observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot *snapshot) {
-//        //NSString *cat = snapshot.value;
-//        NSString *child = @"";
-//        NSString *children = @"";
-//        for (child in snapshot.children) {
-//            //Here you can access child.key
-//            children = child;
-//            NSLog(@"%@", children);
-//        }
-//        //catDics = children;
-//        //NSLog(@"%@", children);
-//       // [catTbl reloadData];
-//    }];
-    //NSDictionary *cat = [jsonStr objectFromJSONString];
-    //catDics=[cat valueForKey:@"cat"];
-    //NSLog(@"cat dics :%@",catDics);
-    
-
-
 }
 -(void)getCurrentLoc
 {
