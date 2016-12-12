@@ -26,6 +26,8 @@
 #import "TestCollectionViewController3.h"
 #import "TestCollectionViewController4.h"
 #import "TestViewController.h"
+#import "iCarousel.h"
+#import "iCarouselExampleViewController.h"
 
 
 @interface HomeViewController : UIViewController<SWRevealViewControllerDelegate,CLLocationManagerDelegate,SMRotaryProtocol>
@@ -49,7 +51,6 @@
     NSMutableArray *annotationArray;
     NSMutableArray *pinArray;
     IBOutlet UIView *catWhileView;
-
 }
 
 - (IBAction)getchureAction:(id)sender;

@@ -54,6 +54,12 @@
 		2D6EF3BA1DFB700D00625481 /* TestCollectionViewController3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3B81DFB700D00625481 /* TestCollectionViewController3.xib */; };
 		2D6EF3BE1DFB704B00625481 /* TestCollectionViewController4.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6EF3BC1DFB704B00625481 /* TestCollectionViewController4.m */; };
 		2D6EF3BF1DFB704B00625481 /* TestCollectionViewController4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3BD1DFB704B00625481 /* TestCollectionViewController4.xib */; };
+		2D6EF3C21DFF17FB00625481 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6EF3C11DFF17FB00625481 /* iCarousel.m */; };
+		2D6EF3C81DFF184400625481 /* iCarouselExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6EF3C31DFF184400625481 /* iCarouselExampleViewController.m */; };
+		2D6EF3CA1DFF184400625481 /* iCarouselExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3C71DFF184400625481 /* iCarouselExampleViewController.xib */; };
+		2D6EF3CD1DFF185300625481 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3CB1DFF185300625481 /* background.png */; };
+		2D6EF3CE1DFF185300625481 /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3CC1DFF185300625481 /* page.png */; };
+		2D6EF3D01DFF188800625481 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3CF1DFF188800625481 /* Default-568h@2x.png */; };
 		2DC0F5C71DC56C5A0021A875 /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC0F5C61DC56C5A0021A875 /* EditViewController.xib */; };
 		2DC0F5CD1DC574090021A875 /* ExpertEditVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC0F5CC1DC574090021A875 /* ExpertEditVC.xib */; };
 		2DFA8E4E1D89FC1800DB3458 /* Viewcontroller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DFA8E4D1D89FC1800DB3458 /* Viewcontroller.xib */; };
@@ -383,6 +389,14 @@
 		2D6EF3BB1DFB704B00625481 /* TestCollectionViewController4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCollectionViewController4.h; sourceTree = "<group>"; };
 		2D6EF3BC1DFB704B00625481 /* TestCollectionViewController4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCollectionViewController4.m; sourceTree = "<group>"; };
 		2D6EF3BD1DFB704B00625481 /* TestCollectionViewController4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestCollectionViewController4.xib; sourceTree = "<group>"; };
+		2D6EF3C01DFF17FB00625481 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		2D6EF3C11DFF17FB00625481 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		2D6EF3C31DFF184400625481 /* iCarouselExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarouselExampleViewController.m; sourceTree = "<group>"; };
+		2D6EF3C41DFF184400625481 /* iCarouselExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarouselExampleViewController.h; sourceTree = "<group>"; };
+		2D6EF3C71DFF184400625481 /* iCarouselExampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = iCarouselExampleViewController.xib; sourceTree = "<group>"; };
+		2D6EF3CB1DFF185300625481 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		2D6EF3CC1DFF185300625481 /* page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page.png; sourceTree = "<group>"; };
+		2D6EF3CF1DFF188800625481 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		2DC0F5C61DC56C5A0021A875 /* EditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditViewController.xib; sourceTree = "<group>"; };
 		2DC0F5CC1DC574090021A875 /* ExpertEditVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpertEditVC.xib; sourceTree = "<group>"; };
 		2DFA8E4D1D89FC1800DB3458 /* Viewcontroller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Viewcontroller.xib; sourceTree = "<group>"; };
@@ -1019,6 +1033,14 @@
 		D3DDA5BC1C43D93300A1D381 /* User Class */ = {
 			isa = PBXGroup;
 			children = (
+				2D6EF3C01DFF17FB00625481 /* iCarousel.h */,
+				2D6EF3C11DFF17FB00625481 /* iCarousel.m */,
+				2D6EF3C31DFF184400625481 /* iCarouselExampleViewController.m */,
+				2D6EF3C41DFF184400625481 /* iCarouselExampleViewController.h */,
+				2D6EF3C71DFF184400625481 /* iCarouselExampleViewController.xib */,
+				2D6EF3CB1DFF185300625481 /* background.png */,
+				2D6EF3CC1DFF185300625481 /* page.png */,
+				2D6EF3CF1DFF188800625481 /* Default-568h@2x.png */,
 				2D6EF37B1DFB35F600625481 /* happy.png */,
 				2D6EF37C1DFB35F600625481 /* hungry.png */,
 				2D6EF37D1DFB35F600625481 /* loved.png */,
@@ -1701,7 +1723,10 @@
 				2D6EF3AF1DFB35F600625481 /* woman4.jpg in Resources */,
 				D3DD84E91C69A7C2008521AB /* pin.png in Resources */,
 				D3DFCA111C3814980089FD98 /* CategoryViewController.xib in Resources */,
+				2D6EF3CA1DFF184400625481 /* iCarouselExampleViewController.xib in Resources */,
+				2D6EF3CD1DFF185300625481 /* background.png in Resources */,
 				D3DDD78C1C450585005461F3 /* CommonShowJobView.xib in Resources */,
+				2D6EF3D01DFF188800625481 /* Default-568h@2x.png in Resources */,
 				D3E73C341C2C015B0069B97F /* Roboto-Regular.ttf in Resources */,
 				D3E95E621CE4BCED00DF2EE8 /* SkillDisplayView.xib in Resources */,
 				D3E8709D1C6F495300198AF0 /* Icon.png in Resources */,
@@ -1769,6 +1794,7 @@
 				2D6EF3781DFB35D900625481 /* TestTableViewController.xib in Resources */,
 				D3DE9DF21C33EEEE00F96D4B /* hireRequestCell.xib in Resources */,
 				D3DDC1CF1CA148ED007B16AF /* my6.png in Resources */,
+				2D6EF3CE1DFF185300625481 /* page.png in Resources */,
 				2D6EF3991DFB35F600625481 /* man1.jpg in Resources */,
 				D3DF03151CC8CD88005D763F /* ExpertSignupVC.xib in Resources */,
 				D3E8709C1C6F495300198AF0 /* Icon-Small@3x.png in Resources */,
@@ -2019,6 +2045,8 @@
 				2D6EF3BE1DFB704B00625481 /* TestCollectionViewController4.m in Sources */,
 				D3DD59CA1C329706002658D2 /* ProfileViewController.m in Sources */,
 				D3E172AF1C4A53DC005E80BB /* UIProgressView+AFNetworking.m in Sources */,
+				2D6EF3C81DFF184400625481 /* iCarouselExampleViewController.m in Sources */,
+				2D6EF3C21DFF17FB00625481 /* iCarousel.m in Sources */,
 				D3E862ED1C5CFBD400E50110 /* JPSThumbnailAnnotationView.m in Sources */,
 				D3E172AC1C4A53DC005E80BB /* UIAlertView+AFNetworking.m in Sources */,
 				2D6EF3791DFB35D900625481 /* TestViewController.m in Sources */,

@@ -206,7 +206,7 @@ NSString * const CAPSPageMenuOptionHideTopMenuBar                       = @"hide
     _useMenuLikeSegmentedControl        = YES;
     _centerMenuItems                    = NO;
     _enableHorizontalBounce             = YES;
-    _hideTopMenuBar                     = NO;
+    _hideTopMenuBar                     = YES;
     
     _currentOrientationIsPortrait   = YES;
     _pageIndexForOrientationChange  = 0;
