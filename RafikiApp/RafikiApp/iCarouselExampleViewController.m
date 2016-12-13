@@ -36,6 +36,7 @@
     //set up data
     self.wrap = YES;
     self.items = [NSMutableArray array];
+
     for (int i = 0; i < 10; i++)
     {
         [self.items addObject:@(i)];
@@ -161,7 +162,7 @@
     //create new view if no view is available for recycling
     if (view == nil)
     {
-        view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 190.0, 190.0)];
+        view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 205, 205)];
         ((UIImageView *)view).image = [UIImage imageNamed:@"page.png"];
         view.contentMode = UIViewContentModeCenter;
         label = [[UILabel alloc] initWithFrame:view.bounds];

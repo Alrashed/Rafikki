@@ -14,7 +14,6 @@
 		2D6EF3681DFB34C400625481 /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6EF3631DFB34C400625481 /* FriendTableViewCell.m */; };
 		2D6EF3691DFB34C400625481 /* FriendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3641DFB34C400625481 /* FriendTableViewCell.xib */; };
 		2D6EF36A1DFB34C400625481 /* MoodCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6EF3661DFB34C400625481 /* MoodCollectionViewCell.m */; };
-		2D6EF36B1DFB34C400625481 /* MoodCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3671DFB34C400625481 /* MoodCollectionViewCell.xib */; };
 		2D6EF36E1DFB357500625481 /* TestCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6EF36D1DFB357500625481 /* TestCollectionViewController.m */; };
 		2D6EF3761DFB35D900625481 /* TestCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF36F1DFB35D900625481 /* TestCollectionViewController.xib */; };
 		2D6EF3771DFB35D900625481 /* TestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6EF3711DFB35D900625481 /* TestTableViewController.m */; };
@@ -62,6 +61,7 @@
 		2D6EF3D01DFF188800625481 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D6EF3CF1DFF188800625481 /* Default-568h@2x.png */; };
 		2DC0F5C71DC56C5A0021A875 /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC0F5C61DC56C5A0021A875 /* EditViewController.xib */; };
 		2DC0F5CD1DC574090021A875 /* ExpertEditVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC0F5CC1DC574090021A875 /* ExpertEditVC.xib */; };
+		2DEE9BBB1E006E5500F9E658 /* MoodCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DEE9BBA1E006E5500F9E658 /* MoodCollectionViewCell.xib */; };
 		2DFA8E4E1D89FC1800DB3458 /* Viewcontroller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DFA8E4D1D89FC1800DB3458 /* Viewcontroller.xib */; };
 		65067A551D828848002C0463 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65067A541D828848002C0463 /* GoogleService-Info.plist */; };
 		B3D60949F062289984654E3C /* Pods_RafikiAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D720C7333FAF57164E2E3217 /* Pods_RafikiAppTests.framework */; };
@@ -343,7 +343,6 @@
 		2D6EF3641DFB34C400625481 /* FriendTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendTableViewCell.xib; sourceTree = "<group>"; };
 		2D6EF3651DFB34C400625481 /* MoodCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoodCollectionViewCell.h; sourceTree = "<group>"; };
 		2D6EF3661DFB34C400625481 /* MoodCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoodCollectionViewCell.m; sourceTree = "<group>"; };
-		2D6EF3671DFB34C400625481 /* MoodCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoodCollectionViewCell.xib; sourceTree = "<group>"; };
 		2D6EF36C1DFB356500625481 /* TestCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCollectionViewController.h; sourceTree = "<group>"; };
 		2D6EF36D1DFB357500625481 /* TestCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCollectionViewController.m; sourceTree = "<group>"; };
 		2D6EF36F1DFB35D900625481 /* TestCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestCollectionViewController.xib; sourceTree = "<group>"; };
@@ -399,6 +398,7 @@
 		2D6EF3CF1DFF188800625481 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		2DC0F5C61DC56C5A0021A875 /* EditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditViewController.xib; sourceTree = "<group>"; };
 		2DC0F5CC1DC574090021A875 /* ExpertEditVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpertEditVC.xib; sourceTree = "<group>"; };
+		2DEE9BBA1E006E5500F9E658 /* MoodCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoodCollectionViewCell.xib; sourceTree = "<group>"; };
 		2DFA8E4D1D89FC1800DB3458 /* Viewcontroller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Viewcontroller.xib; sourceTree = "<group>"; };
 		65067A541D828848002C0463 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A2444E973C9CFEED7A584F4B /* Pods-RafikiAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RafikiAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RafikiAppTests/Pods-RafikiAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1075,7 +1075,7 @@
 				2D6EF3641DFB34C400625481 /* FriendTableViewCell.xib */,
 				2D6EF3651DFB34C400625481 /* MoodCollectionViewCell.h */,
 				2D6EF3661DFB34C400625481 /* MoodCollectionViewCell.m */,
-				2D6EF3671DFB34C400625481 /* MoodCollectionViewCell.xib */,
+				2DEE9BBA1E006E5500F9E658 /* MoodCollectionViewCell.xib */,
 				2D6EF36C1DFB356500625481 /* TestCollectionViewController.h */,
 				2D6EF36D1DFB357500625481 /* TestCollectionViewController.m */,
 				2D6EF36F1DFB35D900625481 /* TestCollectionViewController.xib */,
@@ -1785,7 +1785,6 @@
 				2DFA8E4E1D89FC1800DB3458 /* Viewcontroller.xib in Resources */,
 				2D6EF3A01DFB35F600625481 /* man8.jpg in Resources */,
 				D3D0E47C1CA5760700B2AB51 /* check&DiclosesVC.xib in Resources */,
-				2D6EF36B1DFB34C400625481 /* MoodCollectionViewCell.xib in Resources */,
 				D3DD59D61C32CC38002658D2 /* jobHistoryTableViewCell.xib in Resources */,
 				D3DF7D2F1C61F13A000858E1 /* VeryficationVC.xib in Resources */,
 				2D6EF3971DFB35F600625481 /* hungry.png in Resources */,
@@ -1807,6 +1806,7 @@
 				D3E870931C6F495300198AF0 /* Icon-72.png in Resources */,
 				2D2BA99C1DF952F4004A7ED1 /* HomeViewController.xib in Resources */,
 				2D6EF3A11DFB35F600625481 /* mood1.jpg in Resources */,
+				2DEE9BBB1E006E5500F9E658 /* MoodCollectionViewCell.xib in Resources */,
 				D3DD7DB41C5256400034AE2C /* TreckerViewController.xib in Resources */,
 				D3EE6F261C4E3AFF0069C75D /* SearchView.xib in Resources */,
 				65067A551D828848002C0463 /* GoogleService-Info.plist in Resources */,

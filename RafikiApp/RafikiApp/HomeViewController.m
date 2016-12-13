@@ -89,7 +89,7 @@
                                  CAPSPageMenuOptionCenterMenuItems: @(YES)
                                  };
 
-    _pageMenu = [[CAPSPageMenu alloc] initWithViewControllers:controllerArray frame:CGRectMake(0.0, 250.0, self.view.frame.size.width, self.view.frame.size.height) options:parameters];
+    _pageMenu = [[CAPSPageMenu alloc] initWithViewControllers:controllerArray frame:CGRectMake(0.0, 250.0, self.view.frame.size.width, self.view.frame.size.height-250.0) options:parameters];
     [self.view addSubview:_pageMenu.view];
 
     
