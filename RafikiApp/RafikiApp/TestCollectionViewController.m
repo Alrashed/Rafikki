@@ -62,10 +62,5 @@ static NSString * const reuseIdentifier = @"MoodCollectionViewCell";
     return CGSizeMake(picDimension, picDimension);
 }
 
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-{
-    CGFloat leftRightInset = self.view.frame.size.width / 40.0f;
-    return UIEdgeInsetsMake(0, leftRightInset, 0, leftRightInset);
-}
 
 @end

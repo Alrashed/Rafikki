@@ -72,7 +72,7 @@
     controller2.title = @"o";
     TestCollectionViewController3 *controller3 = [[TestCollectionViewController3 alloc]initWithNibName:@"TestCollectionViewController3" bundle:nil];
     controller3.title = @"o";
-    TestCollectionViewController4 *controller4 = [[TestCollectionViewController4 alloc]initWithNibName:@"TestCollectionViewController4" bundle:nil];
+    CategoryViewController *controller4 = [[CategoryViewController alloc]initWithNibName:@"CategoryViewController" bundle:nil];
     controller4.title = @"o";
     
     NSArray *controllerArray = @[controller1, controller2, controller3, controller4];

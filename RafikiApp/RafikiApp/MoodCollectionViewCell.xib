@@ -21,8 +21,7 @@
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vxT-TK-gT8">
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ihB-yP-WxM">
-                                <frame key="frameInset" minX="7" width="60" height="60"/>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ihB-yP-WxM">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="6bv-nC-66v"/>
                                     <constraint firstAttribute="height" constant="60" id="l3F-5I-LCK"/>
@@ -40,8 +39,8 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="ihB-yP-WxM" secondAttribute="centerY" id="790-vI-rzh"/>
-                            <constraint firstAttribute="centerY" secondItem="pUW-Vt-AA5" secondAttribute="centerY" id="7Gp-PB-iuP"/>
+                            <constraint firstAttribute="centerY" secondItem="ihB-yP-WxM" secondAttribute="centerY" constant="7.5" id="790-vI-rzh"/>
+                            <constraint firstAttribute="centerY" secondItem="pUW-Vt-AA5" secondAttribute="centerY" constant="-28" id="7Gp-PB-iuP"/>
                             <constraint firstAttribute="trailing" secondItem="pUW-Vt-AA5" secondAttribute="trailing" id="7ne-mZ-vRa"/>
                             <constraint firstAttribute="centerX" secondItem="ihB-yP-WxM" secondAttribute="centerX" id="BZw-i9-1zl"/>
                             <constraint firstAttribute="trailing" secondItem="ihB-yP-WxM" secondAttribute="trailing" id="Cxd-bm-RWZ"/>
